@@ -1,0 +1,361 @@
+body {
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat";
+  font-weight: 900;
+}
+
+p {
+  color: #8f8f8f
+}
+
+/* Heading */
+
+.big-heading{
+  font-family: "Montserrat";
+  font-size: 3.5rem;
+  line-height: 1.5;
+  font-weight: 900;
+  padding-bottom: 10%;
+}
+
+.section-heading{
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-style: italic;
+  padding-top: 2%;
+}
+
+.container-fluid {
+  padding:7% 15%;
+}
+
+/* Sections */
+.coloured-section{
+  background-color: #ff4c68;;
+  color: #ffff;
+}
+
+.white-section{
+    background-color: #ffff;
+}
+
+
+/* Navigation Bar */
+.navbar {
+  color: white;
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+  font-weight: heavy;
+  color: white;
+}
+
+
+/*Search Bar */
+
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 8px 18px ;
+  
+}
+
+input:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* Title Image */
+.title-image {
+  width: 60%;
+  transform: rotate(25deg);
+  position: absolute;
+  right: 25%;
+
+}
+
+/* Title Section */
+
+#title .container-fluid{
+  padding: 3% 15% 2%;
+  text-align: left;
+}
+
+/* Features Section*/
+#features {
+  position: relative;
+}
+
+.feature-title{
+  font-size: 1.5rem;
+}
+
+.feature-box {
+  padding: 5%;
+}
+
+.icon {
+  color: #ef8172;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #ff4c68;
+}
+
+/* description Section */
+
+#description{
+  background-color: #ef8172;
+}
+
+.description_image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+
+#selection {
+  background-color: #ef8172;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+
+.selection-logo {
+  width: 10%;
+  margin: 20px;
+}
+
+/* rating Section  */
+#rating {
+  padding: 100px;
+}
+
+.rating-col {
+  padding: 3% 2%;
+}
+
+.rating-text{
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+@media(max-width: 1028px){
+
+  #title{
+    text-align: center;
+  }
+
+  .title-image{
+    position: static;
+    transform: rotate(0);
+    padding-bottom: 2%;
+  }
+}
+.btn:hover{
+  background-color: #ff4c68;
+}
+
+#lovelisttable{
+  position: relative;
+  padding: 10%;
+  min-height: 70vh;
+}
+
+
+
+/* Footer */
+
+.footer{
+    background-color: #DCDCDC;
+    padding: 7% 15% 1%;
+    position: relative;
+    width: 100%;
+}
+
+.footer-icons{
+  color: #ef8172;
+  padding: 5px;
+}
+
+.footer-icons:hover{
+    color: #ff4c68;
+}
+
+/*  Log in Page */
+
+.sidenav {
+  height: 100%;
+  background-color: #ff4c68;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+
+/*  LogIn Page  */
+
+main-head{
+  height: 150px;
+  background: #FFF;
+ 
+}
+
+.sidenav {
+  height: 100%;
+  background-color: #ff4c68;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+
+.main {
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+  .login-form{
+      margin-top: 10%;
+  }
+
+  .register-form{
+      margin-top: 10%;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .main{
+      margin-left: 40%; 
+  }
+
+  .sidenav{
+      width: 40%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+  }
+
+  .login-form{
+      margin-top: 80%;
+  }
+
+  .register-form{
+      margin-top: 20%;
+  }
+}
+
+
+.login-main-text{
+  margin-top: 50%;
+  padding: 60px;
+  color: #fff;
+}
+
+.login-main-text h2{
+  font-weight: 300;
+}
+
+#login-btn{
+  background-color: #ef8172;
+  padding: 5px; 
+  display: inline-block;
+  width: 40%; 
+  margin: 5px;
+  
+}
+
+#login-btn:hover{
+  background-color: #ff4c68;
+  color: white; 
+  padding: 5px; 
+  
+}
+
+/* Registration Page 
+
+.header {
+  width: 30%;
+  margin: 50px auto 0px;
+  color: white;
+  background: #5F9EA0;
+  text-align: center;
+  border: 1px solid #B0C4DE;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+}
+form, .content {
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #B0C4DE;
+  background: ff4c68;
+  border-radius: 10px 10px 10px 10px;
+}
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}*/
+/* .btn {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background: #5F9EA0;
+  border: none;
+  border-radius: 5px;
+} */
+/* .error {
+  width: 92%; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+}
+.success {
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}*/
