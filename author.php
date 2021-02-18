@@ -1,31 +1,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>BookWorm - Author</title>
-  <!-- GoogleFonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;900&family=Ubuntu:wght@300;400&display=swap"
-    rel="stylesheet">
-
-  <!-- CSS style sheets -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Font Awesome -->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-
-  <!-- Bootstrap Scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-  </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-  </script>
+<?php
+			include("header.php");
+			?>
 </head>
 
 <body>
@@ -130,15 +108,10 @@
   </section>
 
   <!-- Footer -->
-
-  <footer class="footer">
-    <a href="https://www.facebook.com/books" add target="_blank"> <i
-        class="footer-icons fab fa-facebook-f fa-3x"></i></a>
-    <a href="https://twitter.com/books" add target="_blank"> <i class="footer-icons fab fa-twitter fa-3x"></i></a>
-    <a href="https://www.instagram.com/books" add target="_blank"> <i
-        class="footer-icons fab fa-instagram fa-3x"></i></a>
-    <a href="mailto:BookWorm@example.com" add target="_blank"><i class="footer-icons fas fa-envelope fa-3x"></i></a>
-    <p>© Copyright 2021 BookWorm</p>
+  <footer class="footer navbar-fixed-bottom">
+  <?php
+			include("footer.php");
+			?>
 
   </footer>
 </body>
