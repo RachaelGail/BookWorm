@@ -58,8 +58,8 @@ if (isset($_POST['login_user'])) {
                      <input type="password" class="form-control" placeholder="Password">
                   </div>
                   <button type="submit" class="nav-link btn " id="login-btn">Login</button>
-                  <a class="nav-link btn" id="login-btn" href="register.php">Register</a>
-                  <a class="nav-link btn" id="login-btn" href="index.php">Home</a>
+                  <a class="nav-link btn" id="login-btn" href="webpages/register.php">Register</a>
+                  <a class="nav-link btn" id="login-btn" href="webpages/index.php">Home</a>
                </form>
             </div>
          </div>

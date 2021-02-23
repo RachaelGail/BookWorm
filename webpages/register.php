@@ -66,43 +66,31 @@ if (isset($_POST['reg_user'])) {
          </div>
       </div>
      
-      <div class="main">
-         <div class="col-lg-6 col-md-6">
-            <div class="login-form">
-                <form method="post" action="register.php">
-        	      <?php include('errors.php'); ?>
-                <div class="form-group">
+      <div class='main'>
+         <div class='col-lg-6 col-md-6'>
+            <div class='login-form'>
+                <form action='processinsert.php' method='POST'>
+                <div class='form-group'>
                      <label>Email</label>
-                     <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" placeholder="Email">
+                     <input type='text' name='email' required/>>
                   </div>
 
-                  <div class="form-group">
+                  <div class='form-group'>
                      <label>Password</label>
-                     <input type="password" name = "password_1" class="form-control" placeholder="Password">
+                     <input type='text' name='password_1' required/>>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class='form-group'>
                      <label>Confirm Password</label>
-                     <input type="password" name = "password_2" class="form-control" placeholder="Password">
-                  </div>
-                  <button type="submit" class="nav-link btn " id="login-btn" href="index.php">Register</button>
-                  <a class="nav-link btn" id="login-btn" href="index.php">Home</a>
+                     <input ype='text' name='password_2' class='form-control' placeholder='Password'>
+                  </div> -->
+                  <input type='submit' class='nav-link btn' id='login-btn' value='Register' />
+                  <a class='nav-link btn' id='login-btn' href='webpages/index.php'>Home</a>
                </form>
             </div>
           </div>
       </div>
-
-
-
-
-
             </div>
          </div>
       </div>
-
-
-
-
-
-
 </body>
 </html>

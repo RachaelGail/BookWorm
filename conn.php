@@ -7,9 +7,7 @@ $db = "rdoherty48";
 $conn = new mysqli($host, $username, $passw, $db);
 
 if($conn->error){
-  echo "not connected".$conn>error; 
-}else{
-  echo "connection to DB found"; 
+  echo "not connected".$conn->error; 
 }
 
 
