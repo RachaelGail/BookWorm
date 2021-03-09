@@ -3,9 +3,14 @@ body {
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   font-family: "Montserrat";
   font-weight: 900;
+}
+
+h3, h4, h5, h6 {
+  font-family: "Montserrat";
+  font-weight: 500;
 }
 
 p {
@@ -296,6 +301,11 @@ main-head{
   color: white; 
   padding: 5px; 
   
+}
+
+.jumbotron{
+  max-width: 500px;
+  margin: auto;
 }
 
 /* Registration Page 

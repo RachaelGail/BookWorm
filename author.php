@@ -1,4 +1,4 @@
-<?php	
+<?php
 	include("conn.php");
   ?>
 
@@ -17,41 +17,9 @@
 
   <!-- Nav Bar -->
   <section class = "coloured-section" id="title">
-    <div class="container-fluid" id="nav-placeholder">
-
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="webpages/index.php">BookWorm</a>
-        <button class="navbar-toggler" type="btn" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <!-- <span class="navbar=toggler-icon"></span> -->
-          <i class="fas fa-bars"></i>
-    
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link"  href="webpages/login.php"> Log In</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="webpages/fiction.php"> Fiction</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="webpages/nonfiction.php"> Non-Fiction</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="webpages/author.php"> Author</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="webpages/lovelist.php"> Love List</a>
-            </li>
-            <form>
-              <input type="text" name="search" placeholder="Search..">
-            </form>
-          </ul>
-        </div>
-      </nav>
-
-  </div>  
+  <?php
+    include("navbar.php")
+        ?>
 
   </section>
 

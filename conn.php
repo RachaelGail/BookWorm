@@ -1,14 +1,23 @@
 <?php
+    
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
-$host = "rdoherty48.lampt.eeecs.qub.ac.uk";
-$username = "rdoherty48";
-$passw = "Wvmqbr1KkwxTw636";
-$db = "rdoherty48";
-$conn = new mysqli($host, $username, $passw, $db);
+$passw = "root";
+$username = "root";
+$db = "RD02";
+$host = "localhost";
+$port = 8889;
+$conn = new mysqli("$host:$port", $username, $passw, $db);
 
-if($conn->error){
-  echo "not connected".$conn->error; 
+
+if($conn-> connect_error){
+echo "Connection failed: " .$conn -> connect_error;
+// }else{
+//     echo "thankGod"; 
 }
+
 
 
 ?>
