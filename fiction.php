@@ -1,22 +1,27 @@
 <?php
 	include("conn.php");
-   $sql_query = "SELECT name, author, userRating FROM bs_BestSellers WHERE genre='Fiction' ORDER BY userRating DESC LIMIT 50"; 
-   $exec_sql = $conn->query($sql_query); 
-   $sql_count = "SELECT COUNT(*) FROM bs_BestSellers WHERE genre='Fiction' ORDER BY userRating DESC"; 
+   
 
-   if (isset($_GET['pageno'])) {
-      $pageno = $_GET['pageno'];
+
+   if (isset($_GET['page_number'])) {
+      $page_number = $_GET['page_number'];
   } else {
-      $pageno = 1;
+      $page_number = 1;
   }
 
-   $no_of_records_per_page = 10;
-   $offset = ($pageno-1) * $no_of_records_per_page; 
-   $result = mysqli_query($conn,$sql_count);
+   $no_of_records_per_page = 9;
+   $offset = ($page_number-1) * $no_of_records_per_page; 
+   $count= "SELECT COUNT(*) FROM bs_BestSellers"; 
+   $result = $conn->query($count);
    $total_rows = mysqli_fetch_array($result)[0];
    $total_pages = ceil($total_rows / $no_of_records_per_page);
-   $sql = "SELECT * FROM table LIMIT $offset, $no_of_records_per_page"; 
-
+   $sql = "SELECT name, author, userRating FROM bs_BestSellers WHERE genre='Fiction' ORDER BY userRating DESC LIMIT $offset, $no_of_records_per_page"; 
+    $exec_sql = $conn->query($sql); 
+   if(!$exec_sql){
+      echo $conn->error; 
+      die(); 
+  }
+  $resultcount=1; 
   ?>
 
 
@@ -53,24 +58,35 @@
                         <p>$fRating</p>
                   <button type='button' class='btn btn-lg btn-block btn-outline-dark'>Add to Love List</button>
                </div>";
+               if($resultcount == 9){
+                  break; 
+                }
+                $resultcount++; 
          }
+
+
 
 
          
       ?>
-
+</div>
+    </div>
+   </section>
+   <section class = "white-section" id="features">
+    <div class="container-fluid">
+      
             <ul class="pagination">
-               <li><a href="?pageno=1">First</a></li>
-               <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
-                  <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
+               <li><a href="?page_number=1"> First </a></li>
+               <li class="<?php if($page_number <= 1){ echo 'disabled'; } ?>">
+                  <a href="<?php if($page_number <= 1){ echo '#'; } else { echo "?page_number=".($page_number - 1); } ?>"> Prev </a>
                </li>
-               <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
-                  <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
+               <li class="<?php if($page_number >= $total_pages){ echo 'disabled'; } ?>">
+                  <a href="<?php if($page_number >= $total_pages){ echo '#'; } else { echo "?page_number=".($page_number + 1); } ?>"> Next </a>
                </li>
-               <li><a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
+               <li><a href="?page_number=<?php echo $total_pages; ?>"> Last </a></li>
             </ul>
 
-      </div>
+
     </div>
    </section>
 
