@@ -24,10 +24,13 @@
             <div class='login-form'>
                 <form action='registerinsert.php' method='POST' enctype='multipart/form-data'>
                 <div class='form-group'>
+                     <label>Name</label>
+                     <input type='text' name='name' class='form-control' placeholder='Name' required/>
+                  </div>
+                  <div class='form-group'>
                      <label>Email</label>
                      <input type='text' name='email' class='form-control' placeholder='Email' required/>
                   </div>
-
                   <div class='form-group'>
                      <label>Password</label>
                      <input type='text' name='password_1' class='form-control' placeholder='Password' required/>

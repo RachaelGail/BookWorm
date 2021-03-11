@@ -1,5 +1,5 @@
 <?php
-require_one __DIR__ . '/config.php'; 
+require_one __DIR__ . '/conn.php'; 
 
 class API {
 
@@ -13,7 +13,7 @@ class API {
         while$(OutputData = $data->fetch(PDO::FETCH_ASSOC)){
             $books[$OutputData['id']] = array(
 
-                'id'        => $OutputData['id'], 
+                'id'        =>$OutputData['id'], 
                 'name'      =>$OutputData['name'], 
                 'author'    =>$OutputData['author'], 
                 'userRating'=>$OutputData['userRating']

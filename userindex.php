@@ -36,7 +36,7 @@
 
       <div class='row'>
         <div class='col-lg-6'>
-          <h1 class='big-heading'>Top 50 Books from Amazon!</h1>
+          <h1 class='big-heading'>Hi <?php $name ?> </h1>
         </div>
 
         <div class='col-lg-6'>

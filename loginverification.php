@@ -1,31 +1,32 @@
 <?php
 	include("conn.php");
+   $error='';
 
-   // LOGIN
-if (isset($_POST['submit'])) {
-   $email = mysqli_real_escape_string($_POST['email']);
-   $password = mysqli_real_escape_string($_POST['password']);
-   $errors = array(); 
-
-   if (empty($email)) {
-      array_push($errors, "Email is required");
-   }
-   if (empty($password)) {
-      array_push($errors, "Password is required");
-   }
-
-   if (count($errors) == 0) {
-      $query = "SELECT * FROM bs_Users WHERE email='$email' AND password='$password'";
-      $userID = "SELECT id FROM bs_Users WHERE email='$email' AND password='$password'";
-      $results = mysqli_query($conn,$query);
-      if (mysqli_num_rows($results) == 1) {
-        // $_SESSION['email'] = $email;
-        // $_SESSION['success'] = "You are now logged in";
-        header("Location:index.php");
-      }else {
-         array_push($errors, "Wrong email/password combination");
-      }
-   }
- }
+    if(isset($_POST['login-btn'])){
+    
+        $email = mysqli_real_escape_string($conn,$_POST['email']);
+        $password = mysqli_real_escape_string($conn,$_POST['password']);
+    
+        if ($email != "" && $password != ""){
+    
+            $sql_query = "SELECT count(*) as User FROM BS_Users WHERE email='".$email."' AND password='".$password."'";
+            $result = mysqli_query($conn,$sql_query);
+            $row = mysqli_fetch_array($result);
+    
+            $count = $row['User'];
+    
+            if($count > 0){
+                $_SESSION['email'] = $email;
+                header("Location: userindex.php");
+            }else{
+               echo "Invalid username and password, please try again <a href='login.php'> here</a>";
+            }
+    
+        }
+    else{
+      echo "Invalid username and password, please try again <a href='login.php'> here</a>"; 
+    }
+    
+    }
 
 ?>
