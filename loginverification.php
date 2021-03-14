@@ -2,7 +2,7 @@
  
     // Check if the user is already logged in, if yes then redirect him to welcome page
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-        header("location: index.php");
+        header("location: welcomepage.php");
         exit;
     }include("conn.php");
    $error='';
@@ -12,6 +12,7 @@
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $password = mysqli_real_escape_string($conn,$_POST['password']);
         $id=''; 
+        $name=''; 
     
         if ($email != "" && $password != ""){
     
@@ -28,10 +29,11 @@
                  // Store data in session variables
                  $_SESSION["loggedin"] = true;
                  $_SESSION["id"] = $id;
-                 $_SESSION["email"] = $email;                            
+                 $_SESSION["email"] = $email;   
+                 $_SESSION["name"] = $name;                           
                  
                  // Redirect user to welcome page
-                 header("location: index.php");
+                 header("location: welcomepage.php");
             }else{
                $error= "Invalid username and password";
             }
