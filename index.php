@@ -118,7 +118,10 @@ echo "
         <div class='card-body'>  
           <h2 class='price-text'>$rBook</h2>
           <p>$rRating</p>
-          <button type='button' class='btn btn-lg btn-block btn-outline-dark'>Add to Love List</button>
+          <form action='add.php' method='POST'>
+                          <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
+                          <input type='hidden' name='findID' value=$id>
+                          </form>
         </div>
       </div>
     </div>
