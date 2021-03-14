@@ -6,7 +6,7 @@
     $exec_sql_rating = $conn->query($read_sql_rating); 
     $rcount=1; 
 //Staff Selection
-  $read_sqlss = "SELECT name, author, blurb FROM bs_BestSellers WHERE userRating=4.0 ORDER BY rand()"; 
+  $read_sqlss = "SELECT id, name, author, blurb FROM bs_BestSellers WHERE userRating=4.0 ORDER BY rand()"; 
     $exec_sqlss = $conn->query($read_sqlss); 
     $sscount=1; 
 

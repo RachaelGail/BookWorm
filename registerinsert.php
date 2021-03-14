@@ -16,7 +16,7 @@ $sql = "SELECT * FROM bs_Users WHERE email='$myemail' LIMIT 1";
     if (mysqli_num_rows($result) > 0) {
         echo("Error... Email already exists please login <a href='testfilehtml.php'> here </a> to try again");;
     }else{
-        $insertquery = "INSERT INTO bs_Users (email, password, userName, adminRights) VALUES ('$myemail', '$mypw', '$name','2')";
+        $insertquery = "INSERT INTO bs_Users (email, password, adminRights) VALUES ('$myemail', '$mypw','2')";
 $result = $conn->query($insertquery);
 
 if(!$result){
@@ -27,3 +27,6 @@ if(!$result){
 
 }
 ?>
+
+
+

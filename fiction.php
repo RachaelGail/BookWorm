@@ -1,21 +1,20 @@
 <?php
 	include("conn.php");
-   
 
 
    if (isset($_GET['page_number'])) {
       $page_number = $_GET['page_number'];
-  } else {
-      $page_number = 1;
-  }
+      } else {
+            $page_number = 1;
+      }
 
    $no_of_records_per_page = 9;
    $offset = ($page_number-1) * $no_of_records_per_page; 
-   $count= "SELECT COUNT(*) FROM bs_BestSellers"; 
+   $count= "SELECT COUNT(*) FROM bs_BestSellers WHERE genre='Fiction'"; 
    $result = $conn->query($count);
    $total_rows = mysqli_fetch_array($result)[0];
    $total_pages = ceil($total_rows / $no_of_records_per_page);
-   $sql = "SELECT name, author, userRating FROM bs_BestSellers WHERE genre='Fiction' ORDER BY userRating DESC LIMIT $offset, $no_of_records_per_page"; 
+   $sql = "SELECT id, name, author, userRating FROM bs_BestSellers WHERE genre='Fiction' ORDER BY userRating DESC LIMIT $offset, $no_of_records_per_page"; 
     $exec_sql = $conn->query($sql); 
    if(!$exec_sql){
       echo $conn->error; 
@@ -43,38 +42,30 @@
    <section class = "white-section" id="features">
     <div class="container-fluid">
       <div class="row">
+         <?php
+            while(($fiction_book = $exec_sql ->fetch_assoc()) !==FALSE){
 
-      <?php
-         while(($fiction_book = $exec_sql ->fetch_assoc()) !==FALSE){
+            $fBook = $fiction_book["name"]; 
+            $fAuthor = $fiction_book["author"]; 
+            $fRating = $fiction_book["userRating"]; 
+            echo "
+                  <div class='feature-box col-lg-4'>
+                     <i class='icon fas fa-hand-spock fa-4x'></i>
+                        <h3 class='feature-title'>$fBook</h3>
+                           <p>$fAuthor</p>
+                           <p>$fRating</p>
+                     <button type='button' name='add' class='btn btn-lg btn-block btn-outline-dark'>Add to Love List</button>
+                  </div>";
+                  if($resultcount == 9){
+                     break; 
+                  }
+                  $resultcount++; 
+            }
+            ?>
+      </div>
+   </div>
 
-         $fBook = $fiction_book["name"]; 
-         $fAuthor = $fiction_book["author"]; 
-         $fRating = $fiction_book["userRating"]; 
-         echo "
-               <div class='feature-box col-lg-4'>
-                  <i class='icon fas fa-hand-spock fa-4x'></i>
-                     <h3 class='feature-title'>$fBook</h3>
-                        <p>$fAuthor</p>
-                        <p>$fRating</p>
-                  <button type='button' class='btn btn-lg btn-block btn-outline-dark'>Add to Love List</button>
-               </div>";
-               if($resultcount == 9){
-                  break; 
-                }
-                $resultcount++; 
-         }
-
-
-
-
-         
-      ?>
-</div>
-    </div>
-   </section>
-   <section class = "white-section" id="features">
-    <div class="container-fluid">
-      
+      <div class="container-fluid">
             <ul class="pagination">
                <li><a href="?page_number=1"> First </a></li>
                <li class="<?php if($page_number <= 1){ echo 'disabled'; } ?>">
@@ -85,9 +76,7 @@
                </li>
                <li><a href="?page_number=<?php echo $total_pages; ?>"> Last </a></li>
             </ul>
-
-
-    </div>
+      </div>
    </section>
 
 <!-- Footer -->

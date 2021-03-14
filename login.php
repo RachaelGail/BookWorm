@@ -17,12 +17,14 @@
       <div class="main">
          <div class="col-lg-6 col-md-6">
             <div class="login-form">
-            <form action = "loginverification.php" method = "post">
+            <form action = "loginverification.php" method = "post" <?php echo (!empty($error)) ? 'has-error' : ''; ?>>
                   <label>Email  :</label>
                   <input type = "text" name = "email" /></br>
                   <label>Password  :</label>
                   <input type = "text" name = "password" id ="textbox"/>
-                  <input type = "submit" value = "Login" class="nav-link btn " name="login-btn" id="login-btn"/>
+                  <button type = "submit" value = "Login" class="nav-link btn " name="login-btn" id="login-btn">Login</button>
+
+
                   <a class="nav-link btn" id="login-btn" href="register.php">Register</a>
                   <a class="nav-link btn" id="login-btn" href="index.php">Home</a>
                </form>
