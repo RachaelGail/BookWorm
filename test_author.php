@@ -52,14 +52,20 @@
                 $aBook = $author_book["name"]; 
                 $aAuthor = $author_book["author"]; 
                 $aRating = $author_book["userRating"]; 
+                $id = $author_book["id"];
                 echo "
+                    
                       <div class='feature-box col-lg-4'>
                       <i class='icon fas fas fa-users fa-4x'></i>
                             <h3 class='feature-title'>$aBook</h3>
                                 <p>$aAuthor</p>
                                 <p>$aRating</p>
-                          <button type='submit' name='add' class='btn btn-lg btn-block btn-outline-dark'>Add to Love List</button>
-                      </div>";
+                          <form action='add.php' method='POST'>
+                          <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
+                          <input type='hidden' name='findID' value=$id>
+                          </form>
+                      </div>
+                      ";
                       if($resultcount == 9){
                           break; 
                         }

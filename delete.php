@@ -4,7 +4,7 @@ include "conn.php"; // Using database connection file here
 
 $id = $_GET['id']; // get id through query string
 
-$del = mysqli_query($conn,"DELETE FROM bs_lovelist where id =$id"); // delete query
+$del = mysqli_query($conn,"DELETE FROM bs_lovelist where BestSeller_id =$id AND Users_id=1001"); // delete query
 
 if($del)
 {
@@ -14,6 +14,6 @@ if($del)
 }
 else
 {
-    echo "Error deleting record"; // display error message if not delete
+    echo "Error deleting book"; // display error message if not delete
 }
 ?>

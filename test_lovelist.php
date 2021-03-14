@@ -9,7 +9,7 @@ $sql = "SELECT BestSeller_id, bs_BestSellers.name,
         FROM bs_LoveList 
         INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
         WHERE bs_lovelist.Users_id=1001";
-$row=0; 
+$row=1; 
 
 $exec_sql = $conn->query($sql); 
 if(!$exec_sql){
@@ -80,8 +80,8 @@ $count= count($exec_sql);
                 </th>
                 <td class='border-0 align-middle'><strong>£ $Price</strong></td>
                 <td class='border-0 align-middle'><strong>$Rating</strong></td>
-                <td class='border-0 align-middle'><a href='delete.php?id=$id' class='text-dark'>
-                <i class='footer-icons fas fa-trash fa-2x'></i></a></td>
+                <td class='border-0 align-middle'>
+                <a href='delete.php?id=$id' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
               </tr>";
 
               if($row == $count){
