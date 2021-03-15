@@ -9,13 +9,14 @@ $sql = "SELECT BestSeller_id, bs_BestSellers.name,
         FROM bs_LoveList 
         INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
         WHERE bs_lovelist.Users_id=1001";
-$row=0; 
 
 $exec_sql = $conn->query($sql); 
 if(!$exec_sql){
   echo $conn->error; 
   die(); 
 }
+$row =1;
+$num_rows = mysqli_num_rows($exec_sql);
 
   ?>
 
@@ -67,7 +68,8 @@ if(!$exec_sql){
                 $Rating = $lovelist["userRating"]; 
                 $Price = $lovelist["price"]; 
                 $id= $lovelist["BestSeller_id"]; 
-                $count = COUNT($lovelist); 
+            
+
                 echo "
                 <tr>
                 <th scope='row' class='border-0'>
@@ -83,21 +85,15 @@ if(!$exec_sql){
                 <td class='border-0 align-middle'>
                 <a href='delete.php?id=$id' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
               </tr>";
-
-              if($row == ($count+1)){
+              
+              if($row == $num_rows){
                 break; 
               }
-              $row++; 
+            $row++; 
                 }
-
-
               ?>
           </div>
         </div>
-      
-
-
-
       </tbody>
     </table>
   </section>
