@@ -9,7 +9,7 @@ $sql = "SELECT BestSeller_id, bs_BestSellers.name,
         FROM bs_LoveList 
         INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
         WHERE bs_lovelist.Users_id=1001";
-$row=1; 
+$row=0; 
 
 $exec_sql = $conn->query($sql); 
 if(!$exec_sql){
@@ -84,7 +84,7 @@ if(!$exec_sql){
                 <a href='delete.php?id=$id' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
               </tr>";
 
-              if($row == $count){
+              if($row == ($count+1)){
                 break; 
               }
               $row++; 
