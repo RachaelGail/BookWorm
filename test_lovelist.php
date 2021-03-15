@@ -16,7 +16,7 @@ if(!$exec_sql){
   echo $conn->error; 
   die(); 
 }
-$count= count($exec_sql);
+
   ?>
 
 
@@ -67,7 +67,7 @@ $count= count($exec_sql);
                 $Rating = $lovelist["userRating"]; 
                 $Price = $lovelist["price"]; 
                 $id= $lovelist["BestSeller_id"]; 
-
+                $count = COUNT($lovelist); 
                 echo "
                 <tr>
                 <th scope='row' class='border-0'>

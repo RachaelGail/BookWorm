@@ -2,7 +2,7 @@
 	// session_start();
 	include("conn.php");
 //Rating
-  $read_sql_rating = "SELECT name, author, userRating FROM bs_BestSellers WHERE userRating=4.9 ORDER BY rand()"; 
+  $read_sql_rating = "SELECT id, name, author, userRating FROM bs_BestSellers WHERE userRating=4.9 ORDER BY rand()"; 
     $exec_sql_rating = $conn->query($read_sql_rating); 
     $rcount=1; 
 //Staff Selection
@@ -109,6 +109,7 @@
 $rBook = $rating_book["name"]; 
 $rAuthor = $rating_book["author"]; 
 $rRating = $rating_book["userRating"]; 
+$id = $rating_book["id"]; 
 echo "
     <div class='rating-col col-lg-4 col-md-6'>
       <div class='card'>

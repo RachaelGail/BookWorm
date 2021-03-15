@@ -52,6 +52,7 @@
                 $aBook = $author_book["name"]; 
                 $aAuthor = $author_book["author"]; 
                 $aRating = $author_book["userRating"]; 
+                $id = $author_book["id"]; 
                 echo "
                       <div class='feature-box col-lg-4'>
                       <i class='icon fas fas fa-users fa-4x'></i>

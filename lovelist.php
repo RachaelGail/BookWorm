@@ -1,6 +1,21 @@
+
 <?php
 	include("conn.php");
 
+$sql = "SELECT BestSeller_id, bs_BestSellers.name, 
+              bs_BestSellers.author, 
+              bs_BestSellers.userRating, 
+              bs_BestSellers.price
+        FROM bs_LoveList 
+        INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
+        WHERE bs_lovelist.Users_id=1001";
+$row=1; 
+
+$exec_sql = $conn->query($sql); 
+if(!$exec_sql){
+  echo $conn->error; 
+  die(); 
+}
 
   ?>
 
@@ -43,47 +58,46 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row" class="border-0">
-            <div class="p-2">
-              <div class="ml-3 d-inline-block align-middle">
-                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Book1</a></h5><span
-                  class="text-muted font-weight-normal font-italic d-block">Author</span>
-              </div>
-            </div>
-          </th>
-          <td class="border-0 align-middle"><strong>£ XXX</strong></td>
-          <td class="border-0 align-middle"><strong>1</strong></td>
-          <td class="border-0 align-middle"><a href="#" class="text-dark"><i
-                class="footer-icons fas fa-trash fa-2x"></i></a></td>
-        </tr>
-        <tr>
-          <th scope="row" class="border-0">
-            <div class="p-2">
-              <div class="ml-3 d-inline-block align-middle">
-                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Book2</a></h5><span
-                  class="text-muted font-weight-normal font-italic d-block">Author</span>
-              </div>
-            </div>
-          </th>
-          <td class="border-0 align-middle"><strong>£ XXX</strong></td>
-          <td class="border-0 align-middle"><strong>1</strong></td>
-          <td class="border-0 align-middle"><a href="#" class="text-dark"><i
-                class="footer-icons fas fa-trash fa-2x"></i></a></td>
-        </tr>
-        <tr>
-          <th scope="row" class="border-0">
-            <div class="p-2">
-              <div class="ml-3 d-inline-block align-middle">
-                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Book3</a></h5><span
-                  class="text-muted font-weight-normal font-italic d-block">Author</span>
-              </div>
-            </div>
-          </th>
-          <td class="border-0 align-middle"><strong>£ XXX</strong></td>
-          <td class="border-0 align-middle"><strong>1</strong></td>
-          <td class="border-0 align-middle"><i class="footer-icons fas fa-trash fa-2x"></i></a></td>
-        </tr>
+       
+        <?php
+
+                while(($lovelist = $exec_sql ->fetch_assoc()) !==FALSE){
+                $Book = $lovelist["name"]; 
+                $Author = $lovelist["author"]; 
+                $Rating = $lovelist["userRating"]; 
+                $Price = $lovelist["price"]; 
+                $id= $lovelist["BestSeller_id"]; 
+                $count = COUNT($lovelist); 
+                echo "
+                <tr>
+                <th scope='row' class='border-0'>
+                  <div class='p-2'>
+                    <div class='ml-3 d-inline-block align-middle'>
+                      <h5 class='mb-0'> <a href='#' class='text-dark d-inline-block align-middle'>$Book</a></h5>
+                      <span class='text-muted font-weight-normal font-italic d-block'>$Author</span>
+                    </div>
+                  </div>
+                </th>
+                <td class='border-0 align-middle'><strong>£ $Price</strong></td>
+                <td class='border-0 align-middle'><strong>$Rating</strong></td>
+                <td class='border-0 align-middle'>
+                <a href='delete.php?id=$id' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
+              </tr>";
+
+              if($row == $count){
+                break; 
+              }
+              $row++; 
+                }
+
+
+              ?>
+          </div>
+        </div>
+      
+
+
+
       </tbody>
     </table>
   </section>

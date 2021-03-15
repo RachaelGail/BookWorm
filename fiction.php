@@ -48,6 +48,7 @@
             $fBook = $fiction_book["name"]; 
             $fAuthor = $fiction_book["author"]; 
             $fRating = $fiction_book["userRating"]; 
+            $id = $fiction_book["id"]; 
             echo "
                   <div class='feature-box col-lg-4'>
                      <i class='icon fas fa-hand-spock fa-4x'></i>

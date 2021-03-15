@@ -49,7 +49,8 @@
 
          $fBook = $nonfiction_book["name"]; 
          $fAuthor = $nonfiction_book["author"]; 
-         $fRating = $nonfiction_book["userRating"]; 
+         $fRating = $nonfiction_book["userRating"];
+         $id = $nonfiction_book["id"];  
          echo "
                <div class='feature-box col-lg-4'>
                <i class='icon fas fa-book fa-4x'></i>
