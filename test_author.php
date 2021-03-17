@@ -16,13 +16,17 @@
                $result = $conn->query($count);
                $total_rows = mysqli_fetch_array($result)[0];
                $total_pages = ceil($total_rows / $no_of_records_per_page);
+
                $sql = "SELECT id, name, author, userRating FROM bs_BestSellers ORDER BY author ASC LIMIT $offset, $no_of_records_per_page"; 
+               
                $exec_sql = $conn->query($sql); 
                if(!$exec_sql){
                   echo $conn->error; 
                   die(); 
                }
             $resultcount=1; 
+
+            $url = "http://localhost/rest/api/".$order_id;
 
   ?>
 
