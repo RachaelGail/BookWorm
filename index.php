@@ -64,8 +64,9 @@
                             $ssBook = $ssbook["name"]; 
                             $ssAuthor = $ssbook["author"]; 
                             $ssBlurb = $ssbook["blurb"]; 
+                            $id = $ssbook["id"]; 
                             echo "
-                                      <h3 class='section-heading'>$ssBlurb</h3>
+                                      <h3 class='section-heading'><a href='singularbook.php?id=$id'>$ssBlurb</a></h3>
                                       <i class='fas fa-book'></i><em>$ssBook&nbsp by $ssAuthor</em>
                             ";
                             if($sscount == 2){
@@ -110,6 +111,7 @@ $rBook = $rating_book["name"];
 $rAuthor = $rating_book["author"]; 
 $rRating = $rating_book["userRating"]; 
 $id = $rating_book["id"]; 
+$page = "index.php"; 
 echo "
     <div class='rating-col col-lg-4 col-md-6'>
       <div class='card'>
@@ -117,11 +119,12 @@ echo "
          <h3>$rAuthor</h3>
         </div>
         <div class='card-body'>  
-          <h2 class='price-text'>$rBook</h2>
+          <h2 class='price-text'><a href='singularbook.php?id=$id'>$rBook</a></h2>
           <p>$rRating</p>
           <form action='add.php' method='POST'>
                           <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
                           <input type='hidden' name='findID' value=$id>
+                          <input type='hidden' name='page' value=$page>
                           </form>
         </div>
       </div>

@@ -53,15 +53,17 @@
                 $aAuthor = $author_book["author"]; 
                 $aRating = $author_book["userRating"]; 
                 $id = $author_book["id"]; 
+                $page = 'author.php'; 
                 echo "
                       <div class='feature-box col-lg-4'>
                       <i class='icon fas fas fa-users fa-4x'></i>
-                            <h3 class='feature-title'>$aBook</h3>
+                      <a href='singularbook.php?id=$id'><h3 class='feature-title'>$aBook</h3></a></h3>
                                 <p>$aAuthor</p>
                                 <p>$aRating</p>
                                 <form action='add.php' method='POST'>
                                 <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
                                 <input type='hidden' name='findID' value=$id>
+                                <input type='hidden' name='page' value=$page>
                                 </form>
                       </div>";
                       if($resultcount == 9){

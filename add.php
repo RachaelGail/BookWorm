@@ -3,6 +3,7 @@
 include "conn.php"; 
 
 $id = $conn->real_escape_string($_POST["findID"]);
+$page = $_POST['page']; 
 
     if ($id==='') {
         echo("Error... can not add");
@@ -12,6 +13,8 @@ $id = $conn->real_escape_string($_POST["findID"]);
 
         if(!$result){
         echo $conn->error;
+        }else{
+            header("location: $page"); 
         }
 
 }
