@@ -14,7 +14,7 @@ $page = $_POST['page'];
         if(!$result){
         echo $conn->error;
         }else{
-            header("location: $page"); 
+            header("Location: $page"); 
         }
 
 }

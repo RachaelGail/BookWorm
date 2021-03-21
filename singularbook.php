@@ -40,7 +40,8 @@
                             $price = $row['price']; 
                             $year = $row['year']; 
                             $genre = $row['genre']; 
-                            $blurb = $row['blurb']; 
+                            $blurb = $row['blurb'];
+                            $page = "singularbook.php?id=$id"; 
                         
                             echo "
                                       <h3 class='section-heading'>$blurb</h3>
@@ -52,6 +53,7 @@
                                       <form action='add.php' method='POST'>
                                       <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
                                       <input type='hidden' name='findID' value=$id>
+                                      <input type='hidden' name='page' value=$page>
                                       </form>
                                     
                             ";
