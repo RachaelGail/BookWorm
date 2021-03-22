@@ -1,6 +1,7 @@
 <?php
 // Initialize the session
 session_start();
+$userID = $_SESSION["userID"];  
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -111,7 +112,7 @@ include("conn.php");
     $rBook = $rating_book["name"]; 
     $rAuthor = $rating_book["author"]; 
     $rRating = $rating_book["userRating"]; 
-    $id = $rating_book["id"]; 
+    $bookid = $rating_book["id"]; 
     $page = "index.php"; 
     echo "
         <div class='rating-col col-lg-4 col-md-6'>
@@ -120,11 +121,11 @@ include("conn.php");
             <h3>$rAuthor</h3>
             </div>
             <div class='card-body'>  
-              <h2 class='price-text'><a href='singularbook.php?id=$id'>$rBook</a></h2>
+              <h2 class='price-text'><a href='singularbook.php?id=$bookid'>$rBook</a></h2>
               <p>$rRating</p>
               <form action='add.php' method='POST'>
                               <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
-                              <input type='hidden' name='findID' value=$id>
+                              <input type='hidden' name='findbookID' value=$bookid>
                               <input type='hidden' name='page' value=$page>
                               </form>
             </div>

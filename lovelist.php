@@ -2,8 +2,7 @@
   // Initialize the session
   session_start();
   include("conn.php");
-
-  $id = $_SESSION["id"];
+  $userID = $_SESSION["userID"]; 
 
   $sql = "SELECT BestSeller_id, bs_BestSellers.name, 
                 bs_BestSellers.author, 
@@ -11,7 +10,7 @@
                 bs_BestSellers.price
           FROM bs_LoveList 
           INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
-          WHERE bs_lovelist.Users_id= $id";
+          WHERE bs_lovelist.Users_id= $userID";
 
     $exec_sql = $conn->query($sql); 
     if(!$exec_sql){
@@ -74,7 +73,7 @@
                 $Author = $lovelist["author"]; 
                 $Rating = $lovelist["userRating"]; 
                 $Price = $lovelist["price"]; 
-                $id= $lovelist["BestSeller_id"]; 
+                $bookid= $lovelist["BestSeller_id"]; 
             
 
                 echo "
@@ -90,7 +89,7 @@
                 <td class='border-0 align-middle'><strong>£ $Price</strong></td>
                 <td class='border-0 align-middle'><strong>$Rating</strong></td>
                 <td class='border-0 align-middle'>
-                <a href='delete.php?id=$id' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
+                <a href='delete.php?id=$bookid' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
               </tr>";
               
               if($row == $num_rows){

@@ -3,7 +3,6 @@
    // Initialize the session
    session_start();
 	include("conn.php");
-   $userid = $_SESSION["id"];
 
    //pagenation
                if (isset($_GET['page_number'])) {

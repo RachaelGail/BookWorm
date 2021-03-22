@@ -1,10 +1,10 @@
 <?php
-
+session_start(); 
 include "conn.php"; // Using database connection file here
 
-$id = $_GET['id']; // get id through query string
-
-$del = mysqli_query($conn,"DELETE FROM bs_lovelist where BestSeller_id =$id AND Users_id=1001"); // delete query
+$bookid = $_GET['id']; // get id through query string
+$userID = $_SESSION["userID"]; 
+$del = mysqli_query($conn,"DELETE FROM bs_lovelist where BestSeller_id =$bookid AND Users_id=$userID"); // delete query
 
 if($del)
 {

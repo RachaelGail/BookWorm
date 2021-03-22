@@ -53,17 +53,17 @@
             $fBook = $fiction_book["name"]; 
             $fAuthor = $fiction_book["author"]; 
             $fRating = $fiction_book["userRating"]; 
-            $id = $fiction_book["id"]; 
+            $bookid = $fiction_book["id"]; 
             $page = "fiction.php"; 
             echo "
                   <div class='feature-box col-lg-4'>
                      <i class='icon fas fa-hand-spock fa-4x'></i>
-                     <h3 class='feature-title'><a href='singularbook.php?id=$id'>$fBook</a></h3>
+                     <h3 class='feature-title'><a href='singularbook.php?id=$bookid'>$fBook</a></h3>
                            <p>$fAuthor</p>
                            <p>$fRating</p>
                            <form action='add.php' method='POST'>
                            <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
-                           <input type='hidden' name='findID' value=$id>
+                           <input type='hidden' name='findbookID' value=$bookid>
                            <input type='hidden' name='page' value=$page>
                            </form>
                   </div>";
