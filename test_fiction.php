@@ -1,27 +1,9 @@
 <?php
    // Initialize the session
    session_start();
-	include("conn.php");
-   
-   if (isset($_GET['page_number'])) {
-      $page_number = $_GET['page_number'];
-      } else {
-            $page_number = 1;
-      }
-
-   $no_of_records_per_page = 9;
-   $offset = ($page_number-1) * $no_of_records_per_page; 
-   $count= "SELECT COUNT(*) FROM bs_BestSellers WHERE genre='Fiction'"; 
-   $result = $conn->query($count);
-   $total_rows = mysqli_fetch_array($result)[0];
-   $total_pages = ceil($total_rows / $no_of_records_per_page);
-   $sql = "SELECT id, name, author, userRating FROM bs_BestSellers WHERE genre='Fiction' ORDER BY userRating DESC LIMIT $offset, $no_of_records_per_page"; 
-   $exec_sql = $conn->query($sql); 
-   if(!$exec_sql){
-      echo $conn->error; 
-      die(); 
-  }
-  $resultcount=1; 
+   $ep = "http://localhost:8888/BookWorm/api_GET.php?genre=Fiction";
+   $result = file_get_contents($ep); 
+   $data = json_decode($result, true); 
 
   ?>
 
@@ -45,8 +27,8 @@
     <div class="container-fluid">
       <div class="row">
          <?php
-            while(($fiction_book = $exec_sql ->fetch_assoc()) !==FALSE){
-
+            
+            foreach($data as $fiction_book){
             $fBook = $fiction_book["name"]; 
             $fAuthor = $fiction_book["author"]; 
             $fRating = $fiction_book["userRating"]; 
@@ -64,11 +46,8 @@
                            <input type='hidden' name='page' value=$page>
                            </form>
                   </div>";
-                  if($resultcount == 9){
-                     break; 
-                  }
-                  $resultcount++; 
-            }
+                  
+               }
             ?>
       </div>
    </div>
