@@ -56,7 +56,7 @@
         </div>
 
         <div class='col-lg-6'>
-          <img class='title-image' src='images/bookworm_pic.png' alt='book'>
+          <img class='title-image' src='images/bookworm_pic.png' alt='bookworm'>
         </div>
       </div>
 

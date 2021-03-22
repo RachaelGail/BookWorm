@@ -1,7 +1,7 @@
 <?php
+   // Initialize the session
+   session_start();
 	include("conn.php");
-   
-
 
    if (isset($_GET['page_number'])) {
       $page_number = $_GET['page_number'];

@@ -5,44 +5,48 @@
         header("location: welcomepage.php");
         exit;
     }include("conn.php");
-   $error='';
 
-    if(isset($_POST['login-btn'])){
-    
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $password = mysqli_real_escape_string($conn,$_POST['password']);
-        $id=''; 
-        $name=''; 
     
         if ($email != "" && $password != ""){
     
-            $sql = "SELECT id, email, password AS User FROM bs_Users WHERE email=$email AND password=$password";
+            $sql = "SELECT id, name FROM bs_Users WHERE email='$email' AND password='$password'";
             $exec_sql = $conn->query($sql); 
-            
-    
-            $count = count(['User']);
+            if(!$exec_sql){
+              echo $conn->error; 
+              die(); 
+            }
+            $count = mysqli_num_rows($exec_sql);   
+
     
             if($count > 0){
                  // Password is correct, so start a new session
                  session_start();
-                            
+
+                 $row = $exec_sql->fetch_assoc();
+                             
                  // Store data in session variables
                  $_SESSION["loggedin"] = true;
-                 $_SESSION["id"] = $id;
-                 $_SESSION["email"] = $email;   
-                 $_SESSION["name"] = $name;                           
+                 $_SESSION["userID"] = $row["id"];
+                 $_SESSION["name"] = $row["name"];; 
                  
-                 // Redirect user to welcome page
-                 header("location: welcomepage.php");
+                 $userID =  $_SESSION["userID"] ;
+                 $userName = $_SESSION["name"]; 
+                 
+                 // Redirect user to index page
+                 header("Location: index.php");
             }else{
-               $error= "Invalid username and password";
+                $_SESSION['error']= 'email address or password is incorrect';
+                header('location: login.php');
             }
     
         }
     else{
-      $error= "Invalid username and password, please try again <a href='login.php'> here</a>"; 
+        $_SESSION['error']= 'email address or password is incorrect';
+        header('location: login.php');
     }
     
-    }
+    
 
 ?>

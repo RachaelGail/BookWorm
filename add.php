@@ -1,14 +1,15 @@
 <?php
-
+session_start(); 
 include "conn.php"; 
 
-$id = $conn->real_escape_string($_POST["findID"]);
+$bookID = $conn->real_escape_string($_POST["findbookID"]);
+
 $page = $_POST['page']; 
 
-    if ($id==='') {
+    if ($bookID==='') {
         echo("Error... can not add");
     }else{
-        $insertquery = "INSERT INTO bs_LoveList (Users_id, BestSeller_id) VALUES ('1001', '$id')";
+        $insertquery = "INSERT INTO bs_LoveList (Users_id, BestSeller_id) VALUES ('$userID', '$bookID')";
         $result = $conn->query($insertquery);
 
         if(!$result){

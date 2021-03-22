@@ -1,22 +1,25 @@
-
 <?php
-	include("conn.php");
+  // Initialize the session
+  session_start();
+  include("conn.php");
 
-$sql = "SELECT BestSeller_id, bs_BestSellers.name, 
-              bs_BestSellers.author, 
-              bs_BestSellers.userRating, 
-              bs_BestSellers.price
-        FROM bs_LoveList 
-        INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
-        WHERE bs_lovelist.Users_id=1001";
+  $id = $_SESSION["id"];
 
-$exec_sql = $conn->query($sql); 
-if(!$exec_sql){
-  echo $conn->error; 
-  die(); 
-}
-$row =1;
-$num_rows = mysqli_num_rows($exec_sql);
+  $sql = "SELECT BestSeller_id, bs_BestSellers.name, 
+                bs_BestSellers.author, 
+                bs_BestSellers.userRating, 
+                bs_BestSellers.price
+          FROM bs_LoveList 
+          INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
+          WHERE bs_lovelist.Users_id= $id";
+
+    $exec_sql = $conn->query($sql); 
+    if(!$exec_sql){
+      echo $conn->error; 
+      die(); 
+    }
+    $row =1;
+    $num_rows = mysqli_num_rows($exec_sql);   
 
   ?>
 
@@ -62,6 +65,10 @@ $num_rows = mysqli_num_rows($exec_sql);
        
         <?php
 
+        if( $num_rows <1 ){
+          echo "<h2>Nothing loved yet!</2>";
+        } else{
+
                 while(($lovelist = $exec_sql ->fetch_assoc()) !==FALSE){
                 $Book = $lovelist["name"]; 
                 $Author = $lovelist["author"]; 
@@ -91,6 +98,7 @@ $num_rows = mysqli_num_rows($exec_sql);
               }
             $row++; 
                 }
+              }
               ?>
           </div>
         </div>

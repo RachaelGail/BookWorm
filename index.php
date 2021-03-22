@@ -1,6 +1,14 @@
 <?php
-	// session_start();
-	include("conn.php");
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+include("conn.php");
+
 //Rating
   $read_sql_rating = "SELECT id, name, author, userRating FROM bs_BestSellers WHERE userRating=4.9 ORDER BY rand() LIMIT 3"; 
     $exec_sql_rating = $conn->query($read_sql_rating); 
@@ -26,24 +34,19 @@
    $book2author = $book2values[2];
    $book2blurb = $book2values[3];
 
-
-
-
 ?>
 
+ 
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
 <?php
 			include('header.php');
 			?>
 </head>
-
+</head>
 <body>
-
-<!-- Nav Bar -->
-  <section class = 'coloured-section' id='title'>
+<section class = 'coloured-section' id='title'>
   <?php
     include("navbar.php")
         ?>
@@ -52,19 +55,15 @@
 
       <div class='row'>
         <div class='col-lg-6'>
-          <h1 class='big-heading'>Top 50 Books from Amazon!</h1>
+          <h1 class='big-heading'>Welcome <?php $name ?></h1>
         </div>
 
         <div class='col-lg-6'>
-          <img class='title-image' src='images/bookworm_pic.png' alt='bookworm'>
+          <img class='title-image' src='images/bookworm_pic.png' alt='book'>
         </div>
       </div>
 
   </section>
-
-
-
-
 
   <!-- Staff Selection -->
 
@@ -91,7 +90,6 @@
     </div>
   </section>
 
-
   <!-- Logo Section -->
 
   <section class = 'coloured-section' id='selection'>
@@ -110,41 +108,36 @@
 <?php
   while(($rating_book = $exec_sql_rating ->fetch_assoc()) !==FALSE){
 
-$rBook = $rating_book["name"]; 
-$rAuthor = $rating_book["author"]; 
-$rRating = $rating_book["userRating"]; 
-$id = $rating_book["id"]; 
-$page = "index.php"; 
-echo "
-    <div class='rating-col col-lg-4 col-md-6'>
-      <div class='card'>
-        <div class='card-header'>
-         <h3>$rAuthor</h3>
-        </div>
-        <div class='card-body'>  
-          <h2 class='price-text'><a href='singularbook.php?id=$id'>$rBook</a></h2>
-          <p>$rRating</p>
-          <form action='add.php' method='POST'>
-                          <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
-                          <input type='hidden' name='findID' value=$id>
-                          <input type='hidden' name='page' value=$page>
-                          </form>
-        </div>
-      </div>
-    </div>
-
-";
+    $rBook = $rating_book["name"]; 
+    $rAuthor = $rating_book["author"]; 
+    $rRating = $rating_book["userRating"]; 
+    $id = $rating_book["id"]; 
+    $page = "index.php"; 
+    echo "
+        <div class='rating-col col-lg-4 col-md-6'>
+          <div class='card'>
+            <div class='card-header'>
+            <h3>$rAuthor</h3>
+            </div>
+            <div class='card-body'>  
+              <h2 class='price-text'><a href='singularbook.php?id=$id'>$rBook</a></h2>
+              <p>$rRating</p>
+              <form action='add.php' method='POST'>
+                              <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
+                              <input type='hidden' name='findID' value=$id>
+                              <input type='hidden' name='page' value=$page>
+                              </form>
+            </div>
+          </div>
+        </div> ";
         if($rcount == 3){
             break; 
           }
       $rcount++; 
-
 }
 ?>
-
     </div>
   </section>
-
 
 
   <!-- Footer -->

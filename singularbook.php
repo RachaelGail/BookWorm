@@ -6,9 +6,6 @@
 
     ?>
 
-
-
-
 <DOCTYPE html>
 <html>
 
@@ -26,8 +23,6 @@
 
   </section>
 
-
-
   <section class = "white-section" id="features">
   <div class="container">
         
@@ -41,7 +36,7 @@
                             $year = $row['year']; 
                             $genre = $row['genre']; 
                             $blurb = $row['blurb'];
-                            $page = "singularbook.php?id=$id"; 
+                            $page = "singularbook.php?id=$id";
                         
                             echo "
                                       <h3 class='section-heading'>$blurb</h3>
@@ -55,22 +50,14 @@
                                       <input type='hidden' name='findID' value=$id>
                                       <input type='hidden' name='page' value=$page>
                                       </form>
-                                    
                             ";
-
                             if($count ==1){
                                 break; 
-                            }
-                          
+                            } 
                     }
                     ?>
-         
-      
     </div>
   </section>
-
-
-
   <!-- Footer -->
   <footer class="footer navbar-fixed-bottom">
   <?php
