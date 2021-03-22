@@ -1,11 +1,10 @@
 <?php
 
 header("Content-Type:application/json");
-
-if (isset($_GET['genre']) && $_GET['genre']!="") {
-        include('conn.php');
-        $genre= $_GET['genre'];
-        $result = mysqli_query($conn,"SELECT * FROM bs_BestSellers WHERE genre=$genre");
+include('conn.php');
+if (isset($_GET['id']) && $_GET['id']!="") {
+        $id= $_GET['id'];
+        $result = mysqli_query($conn,"SELECT * FROM bs_BestSellers WHERE id=$id");
 
         if(mysqli_num_rows($result)>0){
         $row = mysqli_fetch_array($result);
@@ -38,13 +37,7 @@ if (isset($_GET['genre']) && $_GET['genre']!="") {
     $response['genre'] = $genre;
     $response['blurb'] = $blurb;
     
-    $json_response = json_encode($response);
-    echo $json_response;
-    }
-
-
-
-
-
+    echo json_encode($response);
     
+    }
 ?>

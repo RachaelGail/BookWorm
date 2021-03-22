@@ -120,7 +120,7 @@ include("conn.php");
             <h3>$rAuthor</h3>
             </div>
             <div class='card-body'>  
-              <h2 class='price-text'><a href='singularbook.php?id=$bookid'>$rBook</a></h2>
+            <a href='singularbook.php?id=$bookid'><h2 class='price-text'>$rBook</h2></a>
               <p>$rRating</p>
               <form action='add.php' method='POST'>
                               <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>

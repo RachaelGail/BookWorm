@@ -1,10 +1,8 @@
 <?php
 
-header("Content-Type:application/json");
-include('conn.php');
-
     if($_SERVER['REQUEST_METHOD'] == "POST"){
-        // Get data from the REST client
+        include('conn.php');
+        // Get data from client
         $myemail = isset($_POST['email']) ? mysqli_real_escape_string($conn, $_POST['email']) : "";
         $mypw = isset($_POST['password']) ? mysqli_real_escape_string($conn, $_POST['password']) : "";
 
