@@ -55,7 +55,7 @@
          echo "
                <div class='feature-box col-lg-4'>
                <i class='icon fas fa-book fa-4x'></i>
-                     <h3 class='feature-title'><a href='singularbook.php?id=$bookid'>$fBook</a></h3>
+               <a href='singularbook.php?id=$bookid'><h3 class='feature-title'>$fBook</h3></a>
                         <p>$fAuthor</p>
                         <p>$fRating</p>
                         <form action='add.php' method='POST'>

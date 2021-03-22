@@ -11,7 +11,7 @@
     
         if ($email != "" && $password != ""){
     
-            $sql = "SELECT id, name FROM bs_Users WHERE email='$email' AND password='$password'";
+            $sql = "SELECT id, name, adminRights FROM bs_Users WHERE email='$email' AND password='$password'";
             $exec_sql = $conn->query($sql); 
             if(!$exec_sql){
               echo $conn->error; 
@@ -29,10 +29,8 @@
                  // Store data in session variables
                  $_SESSION["loggedin"] = true;
                  $_SESSION["userID"] = $row["id"];
-                 $_SESSION["name"] = $row["name"];; 
-                 
-                 $userID =  $_SESSION["userID"] ;
-                 $userName = $_SESSION["name"]; 
+                 $_SESSION["userName"] = $row["name"];; 
+                 $_SESSION["adminRights"] = $row["adminRights"];; 
                  
                  // Redirect user to index page
                  header("Location: index.php");

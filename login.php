@@ -26,11 +26,7 @@
                   <a class="nav-link btn" id="login-btn" href="register.php">Register</a>
                   <a class="nav-link btn" id="login-btn" href="index.php">Home</a>
                </form>
-               <h3><?php
-						if( isset ($_SESSION['error'])){
-							echo $_SESSION['error'] ;
-						}
-					  ?></h3>
+               
             </div>
          </div>
       </div>

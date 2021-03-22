@@ -1,8 +1,7 @@
 <?php
 // Initialize the session
 session_start();
-$userID = $_SESSION["userID"];  
- 
+$name = $_SESSION["userName"]; 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
@@ -56,7 +55,7 @@ include("conn.php");
 
       <div class='row'>
         <div class='col-lg-6'>
-          <h1 class='big-heading'>Welcome <?php $name ?></h1>
+          <h1 class='big-heading'>Hi <?php echo  "$name" ?></h1>
         </div>
 
         <div class='col-lg-6'>
@@ -74,12 +73,12 @@ include("conn.php");
         <div class="carousel-item active container-fluid">
           <p></p><h2 class="testimonial-text"><?php echo "$book1blurb"  ?></h2>
           
-          <em><a href='singularbook.php?id=$book1id'><?php echo"$book1name, $book1author"?></a></em>
+          <em><?php echo"$book1name, $book1author"?></em>
         </div>
         <div class="carousel-item container-fluid">
         <h2 class="testimonial-text"><?php echo "$book2blurb"  ?></h2>
           
-          <em><a href='singularbook.php?id=$book2id'><?php echo"$book2name, $book2author"?></a></em>
+          <em><?php echo"$book2name, $book2author"?></a></em>
         </div>
       </div>
       <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">

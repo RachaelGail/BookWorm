@@ -28,6 +28,7 @@
         
                     <?php 
                           while(($row = $exec_sql->fetch_assoc()) !==FALSE){
+                            $bookid = $row['id']; 
                             $name = $row['name'];
                             $author = $row['author']; 
                             $userRating = $row['userRating']; 
@@ -47,7 +48,7 @@
 
                                       <form action='add.php' method='POST'>
                                       <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
-                                      <input type='hidden' name='findID' value=$id>
+                                      <input type='hidden' name='findbookID' value=$bookid>
                                       <input type='hidden' name='page' value=$page>
                                       </form>
                             ";
