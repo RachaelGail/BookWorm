@@ -27,7 +27,7 @@ include('conn.php');
 
 
     if (isset($_GET['all'])) {
-        $result = mysqli_query($conn,"SELECT * FROM bs_BestSellers LIMIT 100 ");
+        $result = mysqli_query($conn,"SELECT * FROM bs_BestSellers ORDER BY author ASC");
         $datarray = array(); 
         while( $row = $result->fetch_assoc()){
             $dataarray[] = $row; 
@@ -45,9 +45,21 @@ include('conn.php');
             $dataarray[] = $row; 
         }
 
-  
         echo json_encode($dataarray); 
     }
+
+    if (isset($_GET['randomised'])) {
+        $genre= $_GET['randomised'];
+        $result = mysqli_query($conn,"SELECT id, name, author, userRating FROM bs_BestSellers WHERE userRating=4.9 ORDER BY rand() LIMIT 3");
+        $datarray = array(); 
+        while( $row = $result->fetch_assoc()){
+            $dataarray[] = $row; 
+        }
+
+        echo json_encode($dataarray); 
+    }
+
+
 
 
     // }else{ 

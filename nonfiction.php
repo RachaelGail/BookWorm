@@ -1,27 +1,10 @@
 <?php
    // Initialize the session
    session_start();
-	include("conn.php");
+   $ep = "http://localhost:8888/BookWorm/api_GET.php?genre=NonFiction";
+   $result = file_get_contents($ep); 
+   $data = json_decode($result, true); 
 
-   if (isset($_GET['page_number'])) {
-      $page_number = $_GET['page_number'];
-  } else {
-      $page_number = 1;
-  }
-
-   $no_of_records_per_page = 9;
-   $offset = ($page_number-1) * $no_of_records_per_page; 
-   $count= "SELECT COUNT(*) FROM bs_BestSellers WHERE genre='Non Fiction'"; 
-   $result = $conn->query($count);
-   $total_rows = mysqli_fetch_array($result)[0];
-   $total_pages = ceil($total_rows / $no_of_records_per_page);
-   $sql = "SELECT id, name, author, userRating FROM bs_BestSellers WHERE genre='Non Fiction' ORDER BY userRating DESC LIMIT $offset, $no_of_records_per_page"; 
-    $exec_sql = $conn->query($sql); 
-   if(!$exec_sql){
-      echo $conn->error; 
-      die(); 
-  }
-  $resultcount=1; 
   ?>
 
 
@@ -45,34 +28,30 @@
       <div class="row">
 
       <?php
-         while(($nonfiction_book = $exec_sql ->fetch_assoc()) !==FALSE){
-
-         $fBook = $nonfiction_book["name"]; 
-         $fAuthor = $nonfiction_book["author"]; 
-         $fRating = $nonfiction_book["userRating"];
-         $bookid = $nonfiction_book["id"];  
-         $page = "nonfiction.php"; 
-         echo "
-               <div class='feature-box col-lg-4'>
-               <i class='icon fas fa-book fa-4x'></i>
-               <a href='singularbook.php?id=$bookid'><h3 class='feature-title'>$fBook</h3></a>
-                        <p>$fAuthor</p>
-                        <p>$fRating</p>
-                        <form action='add.php' method='POST'>
-                        <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
-                        <input type='hidden' name='findbookID' value=$bookid>
-                        <input type='hidden' name='page' value=$page>
-                        </form>
-               </div>";
-               if($resultcount == 9){
-                  break; 
-                }
-                $resultcount++; 
-         }
+         foreach($data as $book){
+            $BookName = $book["name"]; 
+            $Author = $book["author"]; 
+            $Rating = $book["userRating"]; 
+            $BookID = $book["id"]; 
+            $currentpage = "nonfiction.php"; 
+            echo "
+                  <div class='feature-box col-lg-4'>
+                     <i class='icon fas fa-hand-spock fa-4x'></i>
+                     <a href='singularbook.php?id=$BookID'><h3 class='feature-title'>$BookName</h3></a>
+                           <p>$Author</p>
+                           <p>$Rating</p>
+                           <form action='add.php' method='POST'>
+                           <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
+                           <input type='hidden' name='findbookID' value=$BookID>
+                           <input type='hidden' name='page' value=$currentpage>
+                           </form>
+                  </div>";
+                  
+               }
       ?>
          </div>
     </div>
-
+<!-- 
          <div class="container-fluid">
    
             <ul class="pagination">
@@ -85,7 +64,7 @@
                </li>
                <li><a href="?page_number=<?php echo $total_pages; ?>"> Last </a></li>
             </ul>
-         </div>
+         </div> -->
    </section>
 
 <!-- Footer -->
