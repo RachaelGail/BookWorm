@@ -2,7 +2,7 @@
 
    // Initialize the session
    session_start();
-	 $ep = "http://localhost:8888/BookWorm/api_GET.php?all";
+	$ep = "http://localhost:8888/BookWorm/api_GET.php?all";
    $result = file_get_contents($ep); 
    $data = json_decode($result, true); 
 
