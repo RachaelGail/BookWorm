@@ -21,4 +21,5 @@
     }
     @mysqli_close($conn);
     echo json_encode($json);   
+    
 ?>
