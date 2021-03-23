@@ -59,6 +59,24 @@ include('conn.php');
         echo json_encode($dataarray); 
     }
 
+    if (isset($_GET['userID'])) {
+        $userID= $_GET['userID'];
+        $result = mysqli_query($conn,
+        "SELECT BestSeller_id, bs_BestSellers.name, 
+        bs_BestSellers.author, 
+        bs_BestSellers.userRating, 
+        bs_BestSellers.price
+        FROM bs_LoveList 
+        INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
+        WHERE bs_lovelist.Users_id= $userID");
+        
+        $datarray = array(); 
+        while( $row = $result->fetch_assoc()){
+            $dataarray[] = $row; 
+        }
+
+        echo json_encode($dataarray); 
+    }
 
 
 

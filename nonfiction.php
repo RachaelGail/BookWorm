@@ -36,7 +36,7 @@
             $currentpage = "nonfiction.php"; 
             echo "
                   <div class='feature-box col-lg-4'>
-                     <i class='icon fas fa-hand-spock fa-4x'></i>
+                     <i class='icon fas fa-book fa-4x'></i>
                      <a href='singularbook.php?id=$BookID'><h3 class='feature-title'>$BookName</h3></a>
                            <p>$Author</p>
                            <p>$Rating</p>

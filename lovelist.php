@@ -3,22 +3,9 @@
   session_start();
   include("conn.php");
   $userID = $_SESSION["userID"]; 
-
-  $sql = "SELECT BestSeller_id, bs_BestSellers.name, 
-                bs_BestSellers.author, 
-                bs_BestSellers.userRating, 
-                bs_BestSellers.price
-          FROM bs_LoveList 
-          INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
-          WHERE bs_lovelist.Users_id= $userID";
-
-    $exec_sql = $conn->query($sql); 
-    if(!$exec_sql){
-      echo $conn->error; 
-      die(); 
-    }
-    $row =1;
-    $num_rows = mysqli_num_rows($exec_sql);   
+  $ep = "http://localhost:8888/BookWorm/api_GET.php?userID=$userID";
+  $result = file_get_contents($ep); 
+  $data = json_decode($result, true); 
 
   ?>
 
@@ -64,11 +51,11 @@
        
         <?php
 
-        if( $num_rows <1 ){
-          echo "<h2>Nothing loved yet!</2>";
-        } else{
+        // if( $num_rows <1 ){
+        //   echo "<h2>Nothing loved yet!</2>";
+        // } else{
 
-                while(($lovelist = $exec_sql ->fetch_assoc()) !==FALSE){
+          foreach($data as $lovelist){
                 $Book = $lovelist["name"]; 
                 $Author = $lovelist["author"]; 
                 $Rating = $lovelist["userRating"]; 
@@ -92,11 +79,6 @@
                 <a href='delete.php?id=$bookid' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
               </tr>";
               
-              if($row == $num_rows){
-                break; 
-              }
-            $row++; 
-                }
               }
               ?>
           </div>
