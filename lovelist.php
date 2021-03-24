@@ -1,6 +1,11 @@
 <?php
   // Initialize the session
   session_start();
+  if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
   include("conn.php");
   $userID = $_SESSION["userID"]; 
   $ep = "http://localhost:8888/BookWorm/api_GET.php?userID=$userID";

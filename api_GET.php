@@ -64,7 +64,7 @@ include('conn.php');
         echo json_encode($dataarray); 
     }
 
-
+    //undergoing testing for POST 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         // Get data from client
         $name = $conn->real_escape_string($_POST["name"]);

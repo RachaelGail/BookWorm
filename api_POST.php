@@ -3,8 +3,9 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         include('conn.php');
         // Get data from client
+        $name = isset($_POST['name']) ? mysqli_real_escape_string($conn, $_POST['name']) : "";
         $myemail = isset($_POST['email']) ? mysqli_real_escape_string($conn, $_POST['email']) : "";
-        $mypw = isset($_POST['password']) ? mysqli_real_escape_string($conn, $_POST['password']) : "";
+        $mypw = isset($_POST['password_1']) ? mysqli_real_escape_string($conn, $_POST['password']) : "";
 
         // Insert data into database
         $sql = "INSERT INTO bs_Users (email, password, adminRights) VALUES ('$myemail', '$mypw','2')";
@@ -21,5 +22,4 @@
     }
     @mysqli_close($conn);
     echo json_encode($json);   
-    
 ?>

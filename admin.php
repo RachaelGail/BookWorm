@@ -1,12 +1,18 @@
 <?php
    // Initialize the session
    session_start();
-   $ep = "http://localhost:8888/BookWorm/api_GET.php?genre=Fiction";
-   $result = file_get_contents($ep); 
-   $data = json_decode($result, true); 
+  //  $ep = "http://localhost:8888/BookWorm/api_GET.php?genre=Fiction";
+  //  $result = file_get_contents($ep); 
+  //  $data = json_decode($result, true); 
+
+  if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+   $adminrights = $_SESSION["adminRights"]; 
 
     //check if they have the right rights to be on this page 
-   if(!isset($_SESSION["adminRights"]) == '1'){
+   if ($adminrights !== '1'){
     //if not relocate them to front page 
     header("location: index.php");
     exit;

@@ -1,6 +1,10 @@
 <?php
    // Initialize the session
    session_start();
+   if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+      header("location: login.php");
+      exit;
+  }
    $ep = "http://localhost:8888/BookWorm/api_GET.php?genre=NonFiction";
    $result = file_get_contents($ep); 
    $data = json_decode($result, true); 

@@ -33,14 +33,13 @@
                   </div>
                   <div class='form-group'>
                      <label>Password</label>
-                     <input type='text' name='password_1' class='form-control' placeholder='Password' required/>
+                     <input type='password' name='password_1' class='form-control' placeholder='Password' required/>
                   </div>
                   <div class='form-group'>
                      <label>Confirm Password</label>
-                     <input type='text' name='password_2' class='form-control' placeholder='Password' required/>
+                     <input type='password' name='password_2' class='form-control' placeholder='Password' required/>
                   </div>
                   <input type='submit' class='nav-link btn' id='login-btn' value='Register' />
-                  <a class='nav-link btn' id='login-btn' href='index.php'>Home</a>
                </form>
             </div>
           </div>

@@ -20,11 +20,10 @@
                   <label>Email  :</label>
                   <input type = "text" name = "email" /></br>
                   <label>Password  :</label>
-                  <input type = "text" name = "password" id ="textbox"/>
+                  <input type = "password" name = "password" id ="textbox"/>
                   <button type = "submit" value = "Login" class="nav-link btn " name="login-btn" id="login-btn">Login</button>
 
                   <a class="nav-link btn" id="login-btn" href="register.php">Register</a>
-                  <a class="nav-link btn" id="login-btn" href="index.php">Home</a>
                </form>
                
             </div>
