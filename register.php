@@ -1,6 +1,6 @@
 <?php
 	include("conn.php");
-
+   include("registerinsert.php")
 ?>
 
 
@@ -22,7 +22,7 @@
       <div class='main'>
          <div class='col-lg-6 col-md-6'>
             <div class='login-form'>
-                <form action='registerinsert.php' method='POST' enctype='multipart/form-data'>
+                <form action='register.php' method='POST' enctype='multipart/form-data'>
                 <div class='form-group'>
                      <label>Name</label>
                      <input type='text' name='name' class='form-control' placeholder='Name' required/>
@@ -39,7 +39,7 @@
                      <label>Confirm Password</label>
                      <input type='password' name='password_2' class='form-control' placeholder='Password' required/>
                   </div>
-                  <input type='submit' class='nav-link btn' id='login-btn' value='Register' />
+                  <input type='submit' name='register' class='nav-link btn' id='login-btn' value='Register' />
                </form>
             </div>
           </div>
