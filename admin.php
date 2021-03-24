@@ -43,29 +43,30 @@
 <form action="uploadNewBook.php" method="POST">
 
 <label for="w3review">Book Title </label><br>
-<textarea id="BookTitle" name="BookTitle" rows="4" cols="50">
+<input type ='text' id="BookTitle" name="BookTitle" rows="4" cols="50" required/>
   Book Title
   </textarea>
   <br>
     <br>
   <label for="w3review">Author </label><br>
-<textarea id="Author" name="Author" rows="4" cols="50">
+<input type ='text' id="Author" name="Author" rows="4" cols="50" required/>
   Authors Name
   </textarea>
   <br>
     <br>
   <label for="w3review">Average User Reviews </label><br>
-    <input type="numbers" id="avReviews" name="avReviews"> 
+    <input type="numbers" id="avReviews" name="avReviews" required/> 
     <br>
   <br>
 
   <label for="w3review">Number of Reviews </label><br>
-    <input type="numbers" id="numOfReviews" name="numOfReviews"> 
+    <input type="numbers" id="numOfReviews" name="numOfReviews" required/> 
     <br>
   <br>
 
   <label for="w3review">Price </label><br>
-  <select id="price" name="price">
+  <select id="price" name="price" required>
+    <option value="">Choose Price</option>
     <option value="14">14</option>
     <option value="15">15</option>
     <option value="16">16</option>
@@ -77,7 +78,8 @@
   <br>
 
   <label for="w3review">Published Year </label><br>
-  <select id="publishedyear" name="publishedyear">
+  <select id="publishedyear" name="publishedyear" required>
+  <option value="">Choose Year</option>
     <option value="2000">2020</option>
     <option value="2000">2010</option>
     <option value="2000">2000</option>
@@ -89,7 +91,8 @@
   <br>
 
   <label for="w3review">Genre </label><br>
-  <select id="genre" name="genre">
+  <select id="genre" name="genre" required>
+  <option value="">Choose Genre</option>
     <option value="Fiction">Fiction</option>
     <option value="NonFiction">Non Fiction</option>
   </select>
@@ -99,7 +102,7 @@
 
 
 <label for="w3review">Blurb </label><br>
-<textarea id="textbox" name="blurb" rows="4" cols="50">
+<textarea id="textbox" name="blurb" rows="4" cols="50" required>
   Enter blurb for the book here.
   </textarea>
   <br>
