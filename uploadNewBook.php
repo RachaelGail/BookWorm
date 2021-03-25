@@ -35,7 +35,7 @@ if (isset($_POST['admin'])){
         );
         $context = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
-        //header('location: admnin.php');
+        //header('location: admin.php');
   
       
     }else{
