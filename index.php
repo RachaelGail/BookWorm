@@ -19,7 +19,6 @@ $epRating = "http://localhost:8888/BookWorm/api_GET.php?rating";
    $dataRating = json_decode($resultRating, true); 
 
 
-
 ?>
 
  

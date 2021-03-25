@@ -64,37 +64,37 @@ include('conn.php');
         echo json_encode($dataarray); 
     }
 
-    //undergoing testing for POST 
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
-        // Get data from client
-        $name = $conn->real_escape_string($_POST["name"]);
-        $myemail = $conn->real_escape_string($_POST["email"]);
-        $mypw = $conn->real_escape_string($_POST["password_1"]);
-        $confirmpw = $conn->real_escape_string($_POST["password_2"]);
+    // //undergoing testing for POST 
+    // if($_SERVER['REQUEST_METHOD'] == "POST"){
+    //     // Get data from client
+    //     $name = $conn->real_escape_string($_POST["name"]);
+    //     $myemail = $conn->real_escape_string($_POST["email"]);
+    //     $mypw = $conn->real_escape_string($_POST["password_1"]);
+    //     $confirmpw = $conn->real_escape_string($_POST["password_2"]);
 
-        if ($mypw != $confirmpw) {
-            echo("Error... Passwords do not match, click <a href='register.php'> here </a> to try again");
-            exit;
-            } 
+    //     if ($mypw != $confirmpw) {
+    //         echo("Error... Passwords do not match, click <a href='register.php'> here </a> to try again");
+    //         exit;
+    //         } 
 
-            $sql = "SELECT * FROM bs_Users WHERE email='$myemail' LIMIT 1";
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                echo("Error... Email already exists please login <a href='testfilehtml.php'> here </a> to try again");
-            }else{
-        $sql = "INSERT INTO bs_Users (email, password, adminRights) VALUES ('$myemail', '$mypw','2')";
-        $post_data_query = mysqli_query($conn, $sql);
-        if($post_data_query){
-            $json = array("status" => 1, "Success" => "User has been added successfully!");
-            header("Location: login.php" );
-        }
-        else{
-            $json = array("status" => 0, "Error" => "Error adding User! Please try again!");
-        }
-        echo json_encode($json);   
-    }
+    //         $sql = "SELECT * FROM bs_Users WHERE email='$myemail' LIMIT 1";
+    //         $result = mysqli_query($conn, $sql);
+    //         if (mysqli_num_rows($result) > 0) {
+    //             echo("Error... Email already exists please login <a href='testfilehtml.php'> here </a> to try again");
+    //         }else{
+    //     $sql = "INSERT INTO bs_Users (email, password, adminRights) VALUES ('$myemail', '$mypw','2')";
+    //     $post_data_query = mysqli_query($conn, $sql);
+    //     if($post_data_query){
+    //         $json = array("status" => 1, "Success" => "User has been added successfully!");
+    //         header("Location: login.php" );
+    //     }
+    //     else{
+    //         $json = array("status" => 0, "Error" => "Error adding User! Please try again!");
+    //     }
+    //     echo json_encode($json);   
+    // }
    
-    }
+    // }
 
 
 

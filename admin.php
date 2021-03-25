@@ -3,10 +3,10 @@
    include("uploadNewBook.php"); 
    session_start();
 
-  if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
+//   if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+//     header("location: login.php");
+//     exit;
+// }
    $adminrights = $_SESSION["adminRights"]; 
 
     //check if they have the right rights to be on this page 

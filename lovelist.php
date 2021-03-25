@@ -11,6 +11,7 @@
   $ep = "http://localhost:8888/BookWorm/api_GET.php?userID=$userID";
   $result = file_get_contents($ep); 
   $data = json_decode($result, true); 
+  $count = count($data); 
 
   ?>
 
@@ -56,9 +57,9 @@
        
         <?php
 
-        // if( $num_rows <1 ){
-        //   echo "<h2>Nothing loved yet!</2>";
-        // } else{
+        if( $count == 0 ){
+          echo "<h2>Nothing loved yet!</2>";
+        } else{
 
           foreach($data as $lovelist){
                 $Book = $lovelist["name"]; 
@@ -85,6 +86,7 @@
               </tr>";
               
               }
+            }
               ?>
           </div>
         </div>
