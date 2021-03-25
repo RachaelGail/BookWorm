@@ -6,10 +6,11 @@
     exit;
 }
 
-  include("conn.php");
+ // include("conn.php");
   $userID = $_SESSION["userID"]; 
   $ep = "http://localhost:8888/BookWorm/api_GET.php?userID=$userID";
   $result = file_get_contents($ep); 
+  $count = COUNT($result); 
   $data = json_decode($result, true); 
 
   ?>
@@ -56,10 +57,9 @@
        
         <?php
 
-        // if( $num_rows <1 ){
-        //   echo "<h2>Nothing loved yet!</2>";
-        // } else{
-
+        if( $count > 1 ){
+         
+      
           foreach($data as $lovelist){
                 $Book = $lovelist["name"]; 
                 $Author = $lovelist["author"]; 
@@ -81,10 +81,13 @@
                 <td class='border-0 align-middle'><strong>£ $Price</strong></td>
                 <td class='border-0 align-middle'><strong>$Rating</strong></td>
                 <td class='border-0 align-middle'>
-                <a href='delete.php?id=$bookid' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
+                <a href='deletebook.php?id=$bookid' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
               </tr>";
               
               }
+              }else{
+                echo "<h2>Nothing loved yet!</2>";
+            }
               ?>
           </div>
         </div>

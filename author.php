@@ -9,10 +9,9 @@
 	$ep = "http://localhost:8888/BookWorm/api_GET.php?all";
    $result = file_get_contents($ep); 
    $data = json_decode($result, true); 
-
+  // $userID = $_SESSION["userID"]; 
 
   ?>
-
 
 <DOCTYPE html>
 <html lang="en">
