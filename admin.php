@@ -1,9 +1,7 @@
 <?php
    // Initialize the session
+   include("uploadNewBook.php"); 
    session_start();
-  //  $ep = "http://localhost:8888/BookWorm/api_GET.php?genre=Fiction";
-  //  $result = file_get_contents($ep); 
-  //  $data = json_decode($result, true); 
 
   if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
@@ -16,8 +14,7 @@
     //if not relocate them to front page 
     header("location: index.php");
     exit;
-}
-
+   }
   ?>
 
 
@@ -40,31 +37,29 @@
     <div class="container-fluid">
     <h1>Upload A New Book</h1>
 
-<form action="uploadNewBook.php" method="POST">
+<form action="admin.php" method="POST">
 
-<label for="w3review">Book Title </label><br>
-<input type ='text' id="BookTitle" name="BookTitle" rows="4" cols="50" required/>
-  Book Title
-  </textarea>
+<label>Book Title </label><br>
+<input type ='text' id="name" name="name" rows="4" cols="50" required/>
+ 
   <br>
     <br>
-  <label for="w3review">Author </label><br>
-<input type ='text' id="Author" name="Author" rows="4" cols="50" required/>
-  Authors Name
-  </textarea>
+  <label >Author </label><br>
+<input type ='text' id="author" name="author" rows="4" cols="50" required/>
+
   <br>
     <br>
-  <label for="w3review">Average User Reviews </label><br>
-    <input type="numbers" id="avReviews" name="avReviews" required/> 
+  <label >Average User Reviews </label><br>
+    <input type="numbers" id="userRating" name="userRating" required/> 
     <br>
   <br>
 
-  <label for="w3review">Number of Reviews </label><br>
-    <input type="numbers" id="numOfReviews" name="numOfReviews" required/> 
+  <label >Number of Reviews </label><br>
+    <input type="numbers" id="reviews" name="reviews" required/> 
     <br>
   <br>
 
-  <label for="w3review">Price </label><br>
+  <label >Price </label><br>
   <select id="price" name="price" required>
     <option value="">Choose Price</option>
     <option value="14">14</option>
@@ -77,8 +72,8 @@
     <br>
   <br>
 
-  <label for="w3review">Published Year </label><br>
-  <select id="publishedyear" name="publishedyear" required>
+  <label>Published Year </label><br>
+  <select id="year" name="year" required>
   <option value="">Choose Year</option>
     <option value="2000">2020</option>
     <option value="2000">2010</option>
@@ -90,7 +85,7 @@
     <br>
   <br>
 
-  <label for="w3review">Genre </label><br>
+  <label >Genre </label><br>
   <select id="genre" name="genre" required>
   <option value="">Choose Genre</option>
     <option value="Fiction">Fiction</option>
@@ -101,14 +96,14 @@
 
 
 
-<label for="w3review">Blurb </label><br>
+<label >Blurb </label><br>
 <textarea id="textbox" name="blurb" rows="4" cols="50" required>
-  Enter blurb for the book here.
+ 
   </textarea>
   <br>
   
   <br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" name="admin" class='nav-link btn' id='login-btn'>
 
 </form>
 

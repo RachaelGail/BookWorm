@@ -1,26 +1,46 @@
 <?php
 include('conn.php');
 
-$BookTitle = $conn->real_escape_string($_POST["BookTitle"]);
-$Author = $conn->real_escape_string($_POST["Author"]);
-$avReviews = $conn->real_escape_string($_POST["avReviews"]);
-$numOfReviews = $conn->real_escape_string($_POST["numOfReviews"]);
-$price = $conn->real_escape_string($_POST["price"]);
-$publishedyear = $conn->real_escape_string($_POST["publishedyear"]);
-$genre = $conn->real_escape_string($_POST["genre"]);
-$blurb = $conn->real_escape_string($_POST["blurb"]);
+
+if (isset($_POST['admin'])){
 
 
-$insertquery = "INSERT INTO bs_BestSellers (name, author, userRating, reviews, price, year, genre, blurb) VALUES 
-('$BookTitle', '$Author', '$avReviews', '$numOfReviews', '$price', '$publishedyear', '$genre', '$blurb')";
+  $name = $_POST["name"];
+  $author = $_POST["author"];
+  $userRating = $_POST["userRating"];
+  $reviews = $_POST["reviews"];
+  $price = $_POST["price"];
+  $year = $_POST["year"];
+  $genre = $_POST["genre"];
+  $blurb = $_POST["blurb"];
+  $url = 'http://localhost:8888/BookWorm/api_POST_NewBook.php';
+  
+        $data = array(
+          'name' => $name,
+          'author' => $author,
+          'userRating'=> $userRating,
+          'reviews'=> $reviews,
+          'price'=> $price,
+          'year'=> $year,
+          'genre'=> $genre,
+          'blurb'=> $blurb 
+        );
+  
+        $options = array(
+            'http' => array(
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($data)
+            )
+        );
+        $context = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        //header('location: admnin.php');
+  
+      
+    }else{
+  
+    }
 
-
-$result = $conn->query($insertquery);
-
-if(!$result){
-  echo $conn->error;
-}else{
-  header("Location: index.php" );
-}
 
 ?>
