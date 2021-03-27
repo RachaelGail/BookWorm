@@ -64,6 +64,21 @@ include('conn.php');
         echo json_encode($dataarray); 
     }
 
+    if (isset($_GET['search'])) {
+        $search= $_GET['search'];
+        $result = mysqli_query($conn,"SELECT * FROM bs_BestSellers WHERE name LIKE '%".$search."%' 
+             OR author LIKE '%".$search."%'
+             OR userRating ='".$search."' ORDER BY author   ");
+        $datarray = array(); 
+        while( $row = $result->fetch_assoc()){
+            $dataarray[] = $row; 
+        }
+        echo json_encode($dataarray); 
+    }
+
+   
+
+
     // //undergoing testing for POST 
     // if($_SERVER['REQUEST_METHOD'] == "POST"){
     //     // Get data from client

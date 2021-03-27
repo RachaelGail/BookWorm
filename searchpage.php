@@ -6,21 +6,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
-
-include("conn.php");
-    if(!isset($_POST['search'])){
-        header("Location:index.php");
-    }
-
-    $search_sql="SELECT * FROM bs_BestSellers WHERE name LIKE '%".$_POST['search']."%' 
-    OR author LIKE '%".$_POST['search']."%'
-    OR userRating ='".$_POST['search']."'    "; 
-    $search_query = $conn->query($search_sql); 
-
-
-    if(mysqli_num_rows($search_query) !== 0 ){
-       $search_rs=$search_query->fetch_assoc();
-    }
+  $search = $_POST['search']; 
+  $ep = "http://localhost:8888/BookWorm/api_GET.php?search=$search";
+  $result = file_get_contents($ep); 
+  $data = json_decode($result, true); 
+  $count = count($data); 
     
   ?>
 
@@ -50,14 +40,24 @@ include("conn.php");
   <section class = 'white-section' id='rating'>
   <h2 class='section-heading'>Search List</h2>
   <div class='row'>
-<?php
 
-        if(mysqli_num_rows($search_query) !== 0){
-
-            while($search_rs = mysqli_fetch_assoc($search_query)){
-                $Book = $search_rs["name"];
-                $Author = $search_rs["author"];
-                $Rating = $search_rs["userRating"];
+    <?php
+        if( $count == 0 ){
+            echo "<div class='jumbotron jumbotron-fluid text-center'>
+            <div class='container'>
+            <h1 class='display-4'>Sorry...</h1>
+            <p class='lead'>We don't seem to have what you are looking for...</p>
+        
+            </div>
+            </div>"; 
+          } else{
+  
+            foreach($data as $book){
+                  $Book = $book["name"]; 
+                  $Author = $book["author"]; 
+                  $Rating = $book["userRating"]; 
+                 // $Price = $lovelist["price"]; 
+                  $bookid= $book["id"]; 
                     echo "
                         <div class='rating-col col-lg-4 col-md-6'>
                         <div class='card'>
@@ -68,36 +68,12 @@ include("conn.php");
                             <h2 class='price-text'>$Book</h2>
                             <p>$Rating</p>
                             <button type='button' class='btn btn-lg btn-block btn-outline-dark'>Add to Love List</button>
+                            <input type='hidden' name='findbookID' value=$bookid>
                             </div>
                         </div>
-                        </div>
-
-                    ";
-                
-
+                        </div>";
             }
-        
-
-            }else{
-                
-                //  echo "<div class='rating-col col-lg-4 col-md-6'>
-                //  <div class='card'>
-                //      <div class='card-body'>  
-                //      <h2 class='price-text'>NO RESULTS FOUND</h2>
-                //          </div>
-                //  </div>
-                //  </div>"; 
-            //     //header("Location:index.php");
-            echo "<div class='jumbotron jumbotron-fluid text-center'>
-            <div class='container'>
-            <h1 class='display-4'>Sorry...</h1>
-            <p class='lead'>We don't seem to have what you are looking for...</p>
-        
-            </div>
-            </div>"; 
-
-             }
-
+     }
 ?>
 
     </div>

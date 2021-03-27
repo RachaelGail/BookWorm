@@ -28,7 +28,7 @@ echo"
       <li class='nav-item'>
         <a class='nav-link' href='lovelist.php'> Love List</a>
       </li>
-      <form name='form1' method='post' action ='searchpage.php'>
+      <form name='form1' method='POST' action ='searchpage.php'>
         <input type='text' name='search'  placeholder='Search..'>
         <input type='submit' name='submit' value='Search'>
       </form>
