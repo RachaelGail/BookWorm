@@ -1,8 +1,14 @@
 <?php
-	include("conn.php");
-    $id = $_GET['id'];
-    $exec_sql = mysqli_query($conn, "SELECT * FROM bs_BestSellers WHERE id=$id"); 
-    $count =1; 
+	// include("conn.php");
+  //   $id = $_GET['id'];
+  //   $exec_sql = mysqli_query($conn, "SELECT * FROM bs_BestSellers WHERE id=$id"); 
+  //   $count =1; 
+
+  $id = $_GET['id'];
+   $ep = "http://localhost:8888/BookWorm/api_GET.php?id=$id";
+   $result = file_get_contents($ep); 
+   $data = json_decode($result, true); 
+   $count =1; 
 
     ?>
 
@@ -27,17 +33,18 @@
   <div class="container">
         
                     <?php 
-                          while(($row = $exec_sql->fetch_assoc()) !==FALSE){
-                            $bookid = $row['id']; 
-                            $name = $row['name'];
-                            $author = $row['author']; 
-                            $userRating = $row['userRating']; 
-                            $reviews = $row['reviews']; 
-                            $price = $row['price']; 
-                            $year = $row['year']; 
-                            $genre = $row['genre']; 
-                            $blurb = $row['blurb'];
-                            $page = "singularbook.php?id=$id";
+
+                    foreach($data as $book){
+                            $bookid = $book['id']; 
+                            $name = $book['name'];
+                            $author = $book['author']; 
+                            $userRating = $book['userRating']; 
+                            $reviews = $book['reviews']; 
+                            $price = $book['price']; 
+                            $year = $book['year']; 
+                            $genre = $book['genre']; 
+                            $blurb = $book['blurb'];
+                            $page = "singularbook.php?id=$bookid";
                         
                             echo "
                                       <h3 class='section-heading'>$blurb</h3>

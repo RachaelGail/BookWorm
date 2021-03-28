@@ -52,7 +52,6 @@ $epRating = "http://localhost:8888/BookWorm/api_GET.php?rating";
   </section>
 
   <!-- Staff Selection -->
-
   <?php foreach($dataSS as $book){
     $BookName = $book["name"]; 
     $Author = $book["author"]; 
@@ -61,6 +60,8 @@ $epRating = "http://localhost:8888/BookWorm/api_GET.php?rating";
     $currentpage = "index.php"; 
   ?>
   <section class = 'coloured-section' id='description'>
+  <br><br>
+  <h2 id = 'description'>Staff Selection</h2>
   <div id="testimonial-carousel" class="carousel slide" data-ride="false">
       <div class="carousel-inner">
         <div class="carousel-item active container-fluid">
@@ -82,7 +83,6 @@ $epRating = "http://localhost:8888/BookWorm/api_GET.php?rating";
   <!-- Logo Section -->
 
   <section class = 'coloured-section' id='selection'>
-
   
     <img class='selection-logo' src='images/amazon.png' alt='wob-logo'>
    

@@ -59,7 +59,6 @@
           </div>
         </div>
         <!-- <div class="container-fluid">
-      
             <ul class="pagination">
                <li><a href="?page_number=1"> First </a></li>
                <li class="<?php if($page_number <= 1){ echo 'disabled'; } ?>">

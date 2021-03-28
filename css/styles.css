@@ -100,7 +100,7 @@ input:hover{
   width: 40%;
   transform: rotate(25deg);
   position: absolute;
-  right: 55%;
+  /* right: 55%; */
 
 }
 

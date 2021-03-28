@@ -27,7 +27,7 @@ include('conn.php');
     //IndexPage Staff Selection Code 
     if (isset($_GET['staffsection'])) {
         $staffsection= $_GET['staffsection'];
-        $result = mysqli_query($conn,"SELECT * FROM bs_BestSellers WHERE userRating=4.3 ORDER BY rand() LIMIT 2");
+        $result = mysqli_query($conn,"SELECT * FROM bs_BestSellers WHERE userRating=4.3 ORDER BY rand() LIMIT 1");
         $datarray = array(); 
         while( $row = $result->fetch_assoc()){
             $dataarray[] = $row; 
@@ -77,4 +77,17 @@ include('conn.php');
         }
         echo json_encode($dataarray); 
     }
+
+    //Book info page functionality
+    if (isset($_GET['id'])) {
+        $id= $_GET['id'];
+        $result = mysqli_query($conn,"SELECT * FROM bs_BestSellers WHERE id = $id");
+        $datarray = array(); 
+        while( $row = $result->fetch_assoc()){
+            $dataarray[] = $row; 
+        }
+        echo json_encode($dataarray); 
+    }
+
+
 ?>
