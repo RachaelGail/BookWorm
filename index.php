@@ -8,6 +8,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 $name = $_SESSION["userName"];
 
+
 //Staff Selection Connection 
 $epSS = "http://localhost:8888/BookWorm/api_GET.php?staffsection";
    $resultforSS = file_get_contents($epSS); 
@@ -95,7 +96,7 @@ $epRating = "http://localhost:8888/BookWorm/api_GET.php?rating";
   <div class='row'>
 <?php
   foreach($dataRating as $book){
-    $bookid = $book["id"]; 
+    $BestSeller_id = $book["id"]; 
     $BookName = $book["name"]; 
     $Author = $book["author"];
     $currentPage = "index.php"; 
@@ -106,11 +107,11 @@ $epRating = "http://localhost:8888/BookWorm/api_GET.php?rating";
             <h3>$Author</h3>
             </div>
             <div class='card-body'>  
-            <a href='singularbook.php?id=$bookid'><h2 class='price-text'>$BookName</h2></a>
+            <a href='singularbook.php?id=$BestSeller_id'><h2 class='price-text'>$BookName</h2></a>
               <p>4.9</p>
-              <form action='add.php' method='POST'>
-                              <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
-                              <input type='hidden' name='findbookID' value=$bookid>
+              <form action='add.php' name='add' method='POST'>
+                              <input type='submit' name = 'add' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
+                              <input type='hidden' name='BestSeller_id' value=$BestSeller_id>
                               <input type='hidden' name='page' value=$currentPage>
                               </form>
             </div>

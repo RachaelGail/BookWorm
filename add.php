@@ -2,8 +2,8 @@
 session_start(); 
 include "conn.php"; 
 
-$bookID = $conn->real_escape_string($_POST["findbookID"]);
-$userID = $_SESSION["userID"]; 
+$bookID = $conn->real_escape_string($_POST["BestSeller_id"]);
+$userID = $_SESSION["userID"];
 $page = $_POST['page']; 
 
     if ($bookID==='') {
