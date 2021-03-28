@@ -36,11 +36,11 @@
    <section class = "white-section" id="features">
     <div class="container-fluid">
     <h1>Upload A New Book</h1>
-
+    <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
 <form action="admin.php" method="POST">
 
 <label>Book Title </label><br>
-<input type ='text' id="name" name="name" rows="4" cols="50" required/>
+<input type ='text' id="name" name="name" rows="2" cols="50" required/>
  
   <br>
     <br>
@@ -50,7 +50,27 @@
   <br>
     <br>
   <label >Average User Reviews </label><br>
-    <input type="numbers" id="userRating" name="userRating" required/> 
+    <select id="userRating" name="userRating" required>
+    <option value="">Choose Average User Review</option>
+    <option value="4.9">4.9</option>
+    <option value="4.8">4.8</option>
+    <option value="4.7">4.7</option>
+    <option value="4.6">4.6</option>
+    <option value="4.5">4.5</option>
+    <option value="4.4">4.4</option>
+    <option value="4.3">4.3</option>
+    <option value="4.2">4.2</option>
+    <option value="4.1">4.1</option>
+    <option value="4.0">4.0</option>
+    <option value="3.9">3.9</option>
+    <option value="3.8">3.8</option>
+    <option value="3.7">3.7</option>
+    <option value="3.6">3.6</option>
+
+
+  </select>
+
+
     <br>
   <br>
 

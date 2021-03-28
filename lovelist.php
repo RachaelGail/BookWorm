@@ -74,7 +74,7 @@
                 <th scope='row' class='border-0'>
                   <div class='p-2'>
                     <div class='ml-3 d-inline-block align-middle'>
-                      <h5 class='mb-0'> <a href='#' class='text-dark d-inline-block align-middle'>$Book</a></h5>
+                      <h5 class='mb-0'> <a href='singularbook.php?id=$bookid' class='text-dark d-inline-block align-middle'>$Book</a></h5>
                       <span class='text-muted font-weight-normal font-italic d-block'>$Author</span>
                     </div>
                   </div>

@@ -1,9 +1,7 @@
 <?php
 include('conn.php');
 
-
 if (isset($_POST['admin'])){
-
 
   $name = $_POST["name"];
   $author = $_POST["author"];
@@ -35,7 +33,7 @@ if (isset($_POST['admin'])){
         );
         $context = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
-        header('location: admin.php');
+        //header('location: admin.php');
   
       
     }else{

@@ -30,7 +30,7 @@ echo"
       </li>
       <form name='form1' method='POST' action ='searchpage.php'>
         <input type='text' name='search'  placeholder='Search..'>
-        <input type='submit' name='submit' value='Search'>
+        <input type='submit' class='btn btn-outline-dark' style='float: right' value='Search'>
       </form>
     </ul>
   </div>

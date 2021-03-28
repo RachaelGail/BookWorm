@@ -95,6 +95,7 @@ input:hover{
 }
 
 
+
 /* Title Image */
 .title-image {
   width: 40%;
@@ -165,6 +166,10 @@ input:hover{
 
 .rating-col {
   padding: 3% 2%;
+}
+
+.rating-section{
+  color: #ff4c68;
 }
 
 /* .rating-text{

@@ -56,7 +56,7 @@ include('conn.php');
         bs_BestSellers.price
         FROM bs_LoveList 
         INNER JOIN bs_BestSellers ON BestSeller_id=bs_BestSellers.id
-        WHERE bs_lovelist.Users_id= $userID");
+        WHERE bs_lovelist.Users_id= $userID ORDER BY bs_BestSellers.name");
         
         $datarray = array(); 
         while( $row = $result->fetch_assoc()){

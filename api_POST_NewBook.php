@@ -26,9 +26,11 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
         $post_data_query = mysqli_query($conn, $sql);
         if($post_data_query){
             $json = array("status" => 1, "Success" => "Book has been added successfully!");
+            $message = "New Book Uploaded";
         }
         else{
             $json = array("status" => 0, "Error" => "Error adding book! Please try again!");
+            $message = "Error - try again Please :) ";
         }
     }
     else{
