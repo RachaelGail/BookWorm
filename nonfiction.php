@@ -36,17 +36,17 @@
             $BookName = $book["name"]; 
             $Author = $book["author"]; 
             $Rating = $book["userRating"]; 
-            $BookID = $book["id"]; 
+            $bookid = $book["id"]; 
             $currentpage = "nonfiction.php"; 
             echo "
                   <div class='feature-box col-lg-4'>
                      <i class='icon fas fa-book fa-4x'></i>
-                     <a href='singularbook.php?id=$BookID'><h3 class='feature-title'>$BookName</h3></a>
+                     <a href='singularbook.php?id=$bookid'><h3 class='feature-title'>$BookName</h3></a>
                            <p>$Author</p>
                            <p>$Rating</p>
                            <form action='add.php' method='POST'>
                            <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
-                           <input type='hidden' name='findbookID' value=$BookID>
+                           <input type='hidden' name='findbookID' value=$bookid>
                            <input type='hidden' name='page' value=$currentpage>
                            </form>
                   </div>";

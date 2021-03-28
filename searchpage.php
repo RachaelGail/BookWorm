@@ -57,7 +57,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                   $Author = $book["author"]; 
                   $Rating = $book["userRating"]; 
                  // $Price = $lovelist["price"]; 
-                  $BestSeller_id= $book["id"]; 
+                  $bookid= $book["id"]; 
+                  $currentpage= 'lovelist.php'; 
                     echo "
                         <div class='rating-col col-lg-4 col-md-6'>
                         <div class='card'>
@@ -67,8 +68,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <div class='card-body'>  
                             <h2 class='price-text'>$Book</h2>
                             <p>$Rating</p>
-                            <button type='button' class='btn btn-lg btn-block btn-outline-dark'>Add to Love List</button>
-                            <input type='hidden' name='BestSeller_id' value=$BestSeller_id>
+                            <form action='add.php' method='POST'>
+                           <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
+                           <input type='hidden' name='findbookID' value=$bookid>
+                           <input type='hidden' name='page' value='$currentpage'>
+                           </form>
                             </div>
                         </div>
                         </div>";

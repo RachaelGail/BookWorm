@@ -2,7 +2,7 @@
 
 include "conn.php"; 
 
-$id = $conn->real_escape_string($_POST["BestSeller_id"]);
+$id = $conn->real_escape_string($_POST["bookid"]);
 $Users_id = $_SESSION["Users_id"];
 $genre = $_POST['genre']; 
 

@@ -1,21 +1,21 @@
 <?php 
 session_start(); 
+
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
-//$Users_id = $_SESSION["userID"];
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         include('conn.php');
         // Get data from client
-        $BestSeller_id = isset($_POST['BestSeller_id']) ? mysqli_real_escape_string($conn, $_POST['BestSeller_id']) : "";
-        $Users_id = isset($_POST['Users_id']) ? mysqli_real_escape_string($conn, $_POST['Users_id']) : "";
-
+        $BestSeller_id = isset($_POST['findbookID']) ? mysqli_real_escape_string($conn, $_POST['findbookID']) : "";
+        //$Users_id = isset($_POST['Users_id']) ? mysqli_real_escape_string($conn, $_POST['Users_id']) : "";
+        $userID = $_SESSION["userID"];
 
         // Insert data into database
-        $sql = "INSERT INTO bs_LoveList (Users_id, BestSeller_id) VALUES ('$Users_id ', '$BestSeller_id')";
+        $sql = "INSERT INTO bs_LoveList (Users_id, BestSeller_id) VALUES ('$userID ', '$BestSeller_id')";
 
         $post_data_query = mysqli_query($conn, $sql);
         if($post_data_query){
