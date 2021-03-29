@@ -54,7 +54,7 @@ $currentPW = $_SESSION["password"];
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"> </td>
+            <td colspan="2"><input type="submit" name="submit" value="Change Password" class='nav-link btn' id='login-btn'> </td>
         </tr>
     </table>
     </div>
