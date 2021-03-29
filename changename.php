@@ -65,7 +65,7 @@ $email= $_SESSION["email"];
 </html>
 
 
-<script>
+<!-- <script>
 
 function validatePassword() {
 var currentPW,newPW,confirmPW,output = true;
@@ -98,7 +98,7 @@ if(newPW.value != confirmPW.value) {
 } 	
 return output;
 }
-</script>
+</script> -->
 
 
 

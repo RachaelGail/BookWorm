@@ -40,12 +40,12 @@
 <form action="admin.php" method="POST">
 
 <label>Book Title </label><br>
-<input type ='text' id="name" name="name" rows="2" cols="50" required/>
+<input type ='text' id="name" name="name" required/>
  
   <br>
     <br>
   <label >Author </label><br>
-<input type ='text' id="author" name="author" rows="4" cols="50" required/>
+<input type ='text' id="author" name="author" required/>
 
   <br>
     <br>

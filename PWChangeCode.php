@@ -5,9 +5,10 @@ $userID = $_SESSION["userID"];
 $sessionPW = $_SESSION["password"]; 
 $newPW = $_POST["newPW"]; 
 $currentPW = $_POST["currentPW"]; 
+$confirmPW = $_POST["confirmPW"]; 
 
 
-    if ($currentPW == $sessionPW) {
+    if ($currentPW == $sessionPW){
 
         $sql= "UPDATE bs_Users 
         SET password='$newPW' 
@@ -18,7 +19,7 @@ $currentPW = $_POST["currentPW"];
         
     } else{
         $message = "Current Password is not correct";
-        
+        header("Location: changepassword.php"); 
 }
 
     

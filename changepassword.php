@@ -23,37 +23,38 @@ $currentPW = $_SESSION["password"];
  <section class = "white-section" id="features">
     <div class="container-fluid">
         <h2> Change Password </h2>
+        <br>
+        <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
+        <br>
       <div class="row">
      <?php  echo "$currentPW"; ?>
      <br>
      <?php  echo "$userID"; ?>
      <br>
+     
 
-<form name="frmChange" method="POST" action="PWChangeCode.php" >
+<form name="frmChange" method="POST" onSubmit="return validatePassword()" action="PWChangeCode.php" >
     <div style="width:500px;">
-    <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
+    
     <table cellpadding="10" cellspacing="0" width="500" class="tblSaveForm">
        
         <tr>
             <td width="40%"><label>Current Password</label></td>
-            <td width="60%"><input type="password" name="currentPW" class="txtField"/><span id="currentPW" required></span></td>
+            <td width="60%"><input type="password" name="currentPW" class="txtField"/><br><span id="currentPW" required></span></td>
         </tr>
 
         <tr>
             <td><label>New Password</label></td>
-            <td><input type="password" name="newPW" class="txtField"/><span id="newPW" required></span></td>
+            <td><input type="password" name="newPW" class="txtField"/><br><span id="newPW" required></span></td>
         </tr>
 
         <tr>
             <td><label>Confirm Password</label></td>
-            <td><input type="password" name="confirmPW" class="txtField"/><span id="confirmPW" required></span></td>
+            <td><input type="password" name="confirmPW" class="txtField"/><br><span id="confirmPW" required></span></td>
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit">
-                            <!-- <input type='hidden' name='userID' value=$userID> -->
-                           <!-- // <input type='hidden' name='currentPW' value=$currentPW> -->
-                        </td>
+            <td colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"> </td>
         </tr>
     </table>
     </div>
@@ -80,24 +81,24 @@ confirmPW = document.frmChange.confirmPW;
 
 if(!currentPW.value) {
     currentPW.focus();
-    document.getElementById("currentPW").innerHTML = "required";
+    document.getElementById("currentPW").innerHTML = "Required";
     output = false;
 }
 else if(!newPW.value) {
     newPW.focus();
-    document.getElementById("newPW").innerHTML = "required";
+    document.getElementById("newPW").innerHTML = "Required";
     output = false;
 }
 else if(!confirmPW.value) {
     confirmPW.focus();
-    document.getElementById("confirmPW").innerHTML = "required";
+    document.getElementById("confirmPW").innerHTML = "Required";
     output = false;
 }
 if(newPW.value != confirmPW.value) {
     newPW.value="";
     confirmPW.value="";
     newPW.focus();
-    document.getElementById("confirmPW").innerHTML = "not same";
+    document.getElementById("confirmPW").innerHTML = "Passwords Don't Match";
     output = false;
 } 	
 return output;
