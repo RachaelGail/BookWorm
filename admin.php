@@ -17,7 +17,6 @@
    }
   ?>
 
-
 <DOCTYPE html>
 <html lang="en">
    <head>
@@ -33,24 +32,25 @@
           </section>
 
 <!-- Admin Section -->
-   <section class = "white-section" id="features">
-    <div class="container-fluid">
-    <h1>Upload A New Book</h1>
-    <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
-<form action="admin.php" method="POST">
+<section class = "white-section" id="features">
+  <div class="container-fluid">
+  <h1>Upload A New Book</h1>
+ <!-- <div class="message"><?php //if(isset($message)) { echo $message; } ?></div> -->
+
+<form name="registerBook" action="admin.php" method="POST" onSubmit="return validateBook()">
 
 <label>Book Title </label><br>
-<input type ='text' id="name" name="name" required/>
- 
+  <input type ='text' id="name" name="name" required/><br>
   <br>
-    <br>
-  <label >Author </label><br>
-<input type ='text' id="author" name="author" required/>
+  <br>
 
+<label >Author </label><br>
+  <input type ='text' id="author" name="author" required/><br>
   <br>
-    <br>
+  <br>
+
   <label >Average User Reviews </label><br>
-    <select id="userRating" name="userRating" required>
+    <select id="userRating" name="userRating" required><br>
     <option value="">Choose Average User Review</option>
     <option value="4.9">4.9</option>
     <option value="4.8">4.8</option>
@@ -66,17 +66,13 @@
     <option value="3.8">3.8</option>
     <option value="3.7">3.7</option>
     <option value="3.6">3.6</option>
-
-
   </select>
-
-
-    <br>
+  <br>
   <br>
 
   <label >Number of Reviews </label><br>
-    <input type="numbers" id="reviews" name="reviews" required/> 
-    <br>
+    <input type="numbers" id="reviews" name="reviews" required/>
+  <br>
   <br>
 
   <label >Price </label><br>
@@ -89,7 +85,7 @@
     <option value="18">18</option>
     <option value="19">19</option>
   </select>
-    <br>
+  <br>
   <br>
 
   <label>Published Year </label><br>
@@ -106,30 +102,26 @@
   <br>
 
   <label >Genre </label><br>
-  <select id="genre" name="genre" required>
-  <option value="">Choose Genre</option>
+  <select id="genre" name="genre" required><br>
+    <option value="">Choose Genre</option>
     <option value="Fiction">Fiction</option>
     <option value="NonFiction">Non Fiction</option>
   </select>
     <br>
-  <br>
+    <br>
 
-
-
-<label >Blurb </label><br>
-<textarea id="textbox" name="blurb" rows="4" cols="50" required>
- 
+  <label >Blurb </label><br>
+  <textarea id="textbox" name="blurb" id="blurb" rows="4" cols="50" required> 
   </textarea>
-  <br>
-  
-  <br>
-  <input type="submit" value="Submit" name="admin" class='nav-link btn' id='login-btn'>
+    <br>
+    <br>
+
+<input type="submit" value="Submit" name="admin" class='nav-link btn' id='login-btn'>
 
 </form>
 
    </div>
 
-  
    </section>
 
 <!-- Footer -->
@@ -140,3 +132,4 @@
    </footer>
 </body>
 </html>
+

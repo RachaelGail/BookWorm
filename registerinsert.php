@@ -3,14 +3,9 @@ include('conn.php');
 
 if (isset($_POST['register'])){
 
-$mypw = $conn->real_escape_string($_POST["password_1"]);
-$confirmpw = $conn->real_escape_string($_POST["password_2"]);
+// $mypw = $conn->real_escape_string($_POST["password_1"]);
+// $confirmpw = $conn->real_escape_string($_POST["password_2"]);
 
-if ($mypw != $confirmpw) {
-    echo("Error... Passwords do not match, click <a href='register.php'> here </a> to try again");
-    exit;
-
-    } else {
       $name = $_POST['name']; 
       $myemail = $_POST['email'];
       $mypw = $_POST['password_1'];
@@ -34,7 +29,7 @@ if ($mypw != $confirmpw) {
       $result = file_get_contents($url, false, $context);
       header('location: login.php');
 
-    }
+    
   }else{
 
   }

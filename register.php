@@ -54,20 +54,9 @@
 function validatePassword() {
 var password_1,password_2,output = true;
 
-
 password_1 = document.registerform.password_1;
 password_2 = document.registerform.password_2;
 
-if(!password_1.value) {
-   password_1.focus();
-    document.getElementById("password_1").innerHTML = "Required";
-    output = false;
-}
-else if(!password_2.value) {
-   password_2.focus();
-    document.getElementById("password_2").innerHTML = "Required";
-    output = false;
-}
 if(password_1.value != password_2.value) {
    password_1.value="";
    password_2.value="";
