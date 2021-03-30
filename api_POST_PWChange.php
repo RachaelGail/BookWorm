@@ -5,24 +5,21 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-session_start(); 
-$userID = $_SESSION["userID"]; 
-
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         include('conn.php');
         // Get data from client
-        $newPassword = isset($_POST['newPassword']) ? mysqli_real_escape_string($conn, $_POST['newPassword']) : "";
+        $newPW = isset($_POST['newPW']) ? mysqli_real_escape_string($conn, $_POST['newPW']) : "";
+        $userID = isset($_POST['userID']) ? mysqli_real_escape_string($conn, $_POST['userID']) : "";
     
         // Insert data into database
-        $sql = "UPDATE bs_Users set password=$newPassword WHERE userId=$userID";
+        $sql = "UPDATE bs_Users SET password='$newPW' WHERE id='$userID'";
         $post_data_query = mysqli_query($conn, $sql);
         if($post_data_query){
-            $json = array("status" => 1, "Success" => "User has been added successfully!");
-            $message = "Password Changed";
+            $json = array("status" => 1, "Success" => "PW has been updated successfully!");
         }
         else{
-            $json = array("status" => 0, "Error" => "Error adding User! Please try again!");
+            $json = array("status" => 0, "Error" => "PW can't be updated! Please try again!");           
         }
     }
     else{
