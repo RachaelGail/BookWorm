@@ -11,10 +11,10 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
         parse_str(file_get_contents("php://input"), $put_vars); 
         $userID = $put_vars['id']; 
-        $newPW = $put_vars['password']; 
+        $newName = $put_vars['name']; 
 
         // Insert data into database
-        $sql = "UPDATE bs_Users SET password='$newPW' WHERE id='$userID'";
+        $sql = "UPDATE bs_Users SET name='$newName' WHERE id='$userID'";
         $post_data_query = mysqli_query($conn, $sql);
         if($post_data_query){
             $json = array("status" => 1, "Success" => "PW has been updated successfully!");

@@ -2,7 +2,7 @@
 include('conn.php'); 
 session_start();
 $userID = $_SESSION["userID"]; 
-$currentPW = $_SESSION["password"]; 
+$sessionPW = $_SESSION["password"]; 
 
 ?>
 
@@ -27,11 +27,11 @@ $currentPW = $_SESSION["password"];
         <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
         <br>
       <div class="row">
-     <?php  echo "$currentPW"; ?>
+     <!-- <?php  echo "$sessionPW"; ?>
      <br>
      <?php  echo "$userID"; ?>
      <br>
-     
+      -->
 
 <form name="frmChange" method="POST" onSubmit="return validatePassword()" action="PWChangeCode.php" >
     <div style="width:500px;">
@@ -54,7 +54,9 @@ $currentPW = $_SESSION["password"];
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" name="submit" value="Change Password" class='nav-link btn' id='login-btn'> </td>
+            <td colspan="2"><input type="submit" name="submit" value="Change Password" class='nav-link btn' id='login-btn'>
+            <input type='hidden' name='sessionPW' value='<?php $sessionPW ?>'>
+        </td>
         </tr>
     </table>
     </div>
@@ -73,27 +75,13 @@ $currentPW = $_SESSION["password"];
 <script>
 
 function validatePassword() {
-var currentPW,newPW,confirmPW,output = true;
+var sessionPW,currentPW,newPW,confirmPW,output = true;
 
+sessionPW = document.frmChange.sessionPW;
 currentPW = document.frmChange.currentPW;
 newPW = document.frmChange.newPW;
 confirmPW = document.frmChange.confirmPW;
 
-if(!currentPW.value) {
-    currentPW.focus();
-    document.getElementById("currentPW").innerHTML = "Required";
-    output = false;
-}
-else if(!newPW.value) {
-    newPW.focus();
-    document.getElementById("newPW").innerHTML = "Required";
-    output = false;
-}
-else if(!confirmPW.value) {
-    confirmPW.focus();
-    document.getElementById("confirmPW").innerHTML = "Required";
-    output = false;
-}
 if(newPW.value != confirmPW.value) {
     newPW.value="";
     confirmPW.value="";
