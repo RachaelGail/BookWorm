@@ -82,7 +82,7 @@
                 <td class='border-0 align-middle'><strong>£ $Price</strong></td>
                 <td class='border-0 align-middle'><strong>$Rating</strong></td>
                 <td class='border-0 align-middle'>
-                <a href='delete.php?id=$bookid' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
+                <a href='deleteBook.php?id=$bookid' class='text-dark'><i class='footer-icons fas fa-trash fa-2x'></i></a></td>
               </tr>";
               
               }

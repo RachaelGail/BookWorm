@@ -25,26 +25,7 @@ $confirmPW = $_POST["confirmPW"];
     
 ?>
 
-<DOCTYPE html>
-<html lang="en">
-   <head>
-         <?php
-			   include("header.php");
-			?>
-   </head>
-   <body>
-   USERID:  <?php  echo "$userID"; ?>
-     <br>
-   SessionPW:   <?php  echo "$sessionPW"; ?>
-     <br>
-   currentPW:   <?php  echo "$currentPW"; ?>
-     <br>
-   
-    NEW:  <?php  echo "$newPW"; ?>
 
-
- </body>
-</html>
 
 <?php 
 // if (isset($_POST['frmChange'])){

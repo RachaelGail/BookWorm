@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
+    if($_SERVER['REQUEST_METHOD'] === "POST"){
 
         include('conn.php');
         // Get data from client
@@ -26,8 +26,8 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
                 // Store data in session variables
                 $_SESSION["loggedin"] = true;
                 $_SESSION["userID"] = $row["id"];
-                $_SESSION["userName"] = $row["name"];; 
-                $_SESSION["adminRights"] = $row["adminRights"];; 
+                $_SESSION["userName"] = $row["name"];
+                $_SESSION["adminRights"] = $row["adminRights"];
                 
                 // Redirect user to index page
                 header("Location: index.php");

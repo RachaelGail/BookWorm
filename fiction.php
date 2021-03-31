@@ -9,7 +9,7 @@
    $ep = "http://localhost:8888/BookWorm/api_GET.php?genre=Fiction";
    $result = file_get_contents($ep); 
    $data = json_decode($result, true); 
-
+   $userID = $_SESSION['userID']; 
   ?>
 
 
@@ -47,6 +47,7 @@
                               <p>$Rating</p>
                               <form action='add.php' method='POST'>
                               <input type='submit' class='btn btn-lg btn-block btn-outline-dark' value='Add to Love List'>
+                              <input type='hidden' name='userID' value=$userID>
                               <input type='hidden' name='findbookID' value=$bookid>
                               <input type='hidden' name='page' value=$currentpage>
                               </form>

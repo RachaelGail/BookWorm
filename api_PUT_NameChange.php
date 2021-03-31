@@ -17,10 +17,10 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
         $sql = "UPDATE bs_Users SET name='$newName' WHERE id='$userID'";
         $post_data_query = mysqli_query($conn, $sql);
         if($post_data_query){
-            $json = array("status" => 1, "Success" => "PW has been updated successfully!");
+            $json = array("status" => 1, "Success" => "Name has been updated successfully!");
         }
         else{
-            $json = array("status" => 0, "Error" => "PW can't be updated! Please try again!");           
+            $json = array("status" => 0, "Error" => "Name can't be updated! Please try again!");           
         }
     }
     else{

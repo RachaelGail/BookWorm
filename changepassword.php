@@ -40,17 +40,17 @@ $sessionPW = $_SESSION["password"];
        
         <tr>
             <td width="40%"><label>Current Password</label></td>
-            <td width="60%"><input type="password" name="currentPW" class="txtField"/><br><span id="currentPW" required></span></td>
+            <td width="60%"><input type="text" name="currentPW" class="txtField"/><br><span id="currentPW" required></span></td>
         </tr>
 
         <tr>
             <td><label>New Password</label></td>
-            <td><input type="password" name="newPW" class="txtField"/><br><span id="newPW" required></span></td>
+            <td><input type="text" name="newPW" class="txtField"/><br><span id="newPW" required></span></td>
         </tr>
 
         <tr>
             <td><label>Confirm Password</label></td>
-            <td><input type="password" name="confirmPW" class="txtField"/><br><span id="confirmPW" required></span></td>
+            <td><input type="text" name="confirmPW" class="txtField"/><br><span id="confirmPW" required></span></td>
         </tr>
 
         <tr>

@@ -3,7 +3,6 @@ include('conn.php');
 session_start();
 $userID = $_SESSION["userID"]; 
 $sessionEmail = $_SESSION["email"]; 
-$currentName = $_SESSION["userName"]; 
 $email= $_POST["email"]; 
 $newName = $_POST["newName"]; 
 
@@ -18,28 +17,10 @@ $newName = $_POST["newName"];
         header("Location: editpage.php"); 
         
     } else{
-        $message = "Current Password is not correct";
+        $message = "Email is not correct";
+        header("Location: changename.php"); 
         
 }
 
     
 ?>
-
-<DOCTYPE html>
-<html lang="en">
-   <head>
-         <?php
-			   include("header.php");
-			?>
-   </head>
-   <body>
-   USERID:  <?php  echo "$userID"; ?>
-     <br>
-     currentName:   <?php  echo "$currentName"; ?>
-     <br>
-   
-     newName:  <?php  echo "$newName"; ?>
-
-
- </body>
-</html>
