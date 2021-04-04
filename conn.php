@@ -18,6 +18,16 @@ echo "Connection failed: " .$conn -> connect_error;
 //     echo "thankGod"; 
 }
 
+//    $passw = "Wvmqbr1KkwxTw636";
+//    $username = "rdoherty48";
+//    $db = "rdoherty48";
+//    $host = "rdoherty48.lampt.eeecs.qub.ac.uk";
+//    $conn = new mysqli($host, $username, $passw, $db);
+//
+//
+//    if($conn-> connect_error){
+//    Echo "Connection failed: " .$conn -> connect_error;
+//    }
 
 
 ?>

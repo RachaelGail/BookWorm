@@ -69,14 +69,7 @@ $epRating = "http://localhost:8888/BookWorm/api_GET.php?rating";
           <em><?php echo"$BookName, $Author"?></em>
         </div>
    
-      </div>
-      <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-      </a>
-    </div>
+      
   </section>
   <?php } ?>
 
